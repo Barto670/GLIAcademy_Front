@@ -1,0 +1,62 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@font-face {
+    font-family: "Alata-Regular";
+    src: url("assets/fonts/Alata-Regular.ttf");
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Alata-Regular', serif;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.container{
+    box-sizing: border-box;
+    padding: 10px 5px;
+    min-width: 100%;
+    min-height: calc(100vh);
+    background-color: #444444;
+}
+
+div,h1,h2,h3,h4,h5,h6{
+    color: white;
+}
+
+.transparent{
+    background-color: #ffffff00 !important;
+    border-inline-color: #ffffff00;
+    border-color: #ffffff00;
+    outline-color: #ffffff00;
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 0%), 0 0 0 0 rgb(74 74 74 / 0%), 0 0 0 0 rgb(0 0 0 / 0%) !important;
+}
+
+.textLeft{
+    text-align: left !important;
+  }
+  
+  .textCenter{
+    text-align: center !important;
+  }
+
+  .nowrap{
+    white-space: -moz-pre-wrap; /* Firefox */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: nowrap;
+    word-wrap: break-word; /* IE */
+    word-break: keep-all;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .cursorPointer{
+    cursor: pointer;
+  }

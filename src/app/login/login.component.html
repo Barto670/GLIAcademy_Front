@@ -1,0 +1,23 @@
+<div class="container col-12">
+    <mat-card class="center border " style="width: 20vw; margin-top:40vh">
+
+        <form [formGroup]="form" class="mt10 ">
+
+            <div class="col-12 row">
+                <h5 class="col-4">Username:</h5>
+                <input class="col-6" type="password" placeholder="Enter here..." formControlName="username" style="margin-top:0px">
+            </div>
+
+            <div class="col-12 row" style="margin-top:1.5vh">
+                <h5 class="col-4">Password:</h5>
+                <input class="col-6" type="password" placeholder="Enter here..." formControlName="password" style="margin-top:0px">
+            </div>
+
+            <div class="center" style="margin-top:1.5vh">
+                <button class="btn"  type="submit" (click)="submit()" > Sign In</button>
+            </div>
+
+        </form>
+
+    </mat-card>
+</div>
