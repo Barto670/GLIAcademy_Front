@@ -4,10 +4,37 @@
     // background-image:url("https://www.kayak.co.uk/news/wp-content/uploads/sites/5/2017/09/car-hire-02.gif");
 
     
-    background-size: 100% 100vh;   
+    // background-size: 100% 100vh;   
 
+    background-color: #ff9d0000;
+    // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg stroke='%23000' stroke-width='66.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23ff9d00' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23fb8d17' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23f47d24' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23ed6e2d' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23e35f34' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23d85239' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23cc453e' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23be3941' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23b02f43' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23a02644' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23901e44' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23801843' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%236f1341' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%235e0f3d' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%234e0c38' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%233e0933' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%232e062c' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%23210024' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("../../assets/images/Mountains.svg");
+    // background-attachment: fixed;
+    background-size: cover;
+    // background-repeat: repeat-x;
+    position: fixed !important;
+    background-position: 0 0;
+    
 }
 
+#animationBackground{
+  animation: move 30s linear infinite alternate;
+}
+
+@keyframes move {
+  0%   {background-position: 0 0;}
+  45%  {background-position: 29% 0;}
+  50%  {background-position: 30% 0;}
+  55%  {background-position: 29% 0;}
+  100% {background-position: 0 0;}
+}
+
+
+input {
+  color: -internal-light-dark(white, white) !important;
+  background: #ffffff00 !important;
+  border-color: rgba(133, 133, 133, 0) !important;
+}
 
 .center {
     margin: auto;
@@ -23,10 +50,178 @@
     width: 10vw;
     height: 60px;
     cursor: pointer;
-    background: transparent;
-    border: 1px solid white;
+    background: #ffffff1c !important;
     outline: none;
     transition: 0.1s;
-    color:white
+    color:white;
+    transition: 0.32s;
+  }
+
+  
+
+  
+
+  .mat-divider {
+    border-top-color: rgba(218, 218, 218, 0.397) !important;
+}
+  
+
+  .btn2:hover{
+    background: #8a8a8a1c !important;
+    // border: 1px solid rgba(255, 255, 255, 0.486);
+    box-shadow: 0px 7px 7px 10px rgba(194, 194, 194, 0.041);
+  }
+
+  .inputBox{
+    padding: 5px; 
+    background: #ffffff1c !important; 
+    border-radius: 5px; 
+    border-color: #00000000;
+    padding-bottom: 18px;
+    // transition: 0.32s;
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+
+  // .inputBox:hover{
+  //   border: 1px solid rgba(255, 255, 255, 0.486);
+  // }
+  
+  body {
+    background: #1a1e23;
+    margin: 0;
   }
   
+  $bubble-count: 50;
+  $sway-type: "sway-left-to-right", "sway-right-to-left";
+  
+  @function random_range($min, $max) {
+    $rand: random();
+    $random_range: $min + floor($rand * (($max - $min) + 1));
+    @return $random_range;
+  }
+  
+  @function sample($list) {
+    @return nth($list, random(length($list)));
+  }
+  
+  .bubbles {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .bubble {
+    position: absolute;
+    left: var(--bubble-left-offset);
+    bottom: -75%;
+    display: block;
+    width: var(--bubble-radius);
+    height: var(--bubble-radius);
+    border-radius: 50%;
+    animation: float-up var(--bubble-float-duration) var(--bubble-float-delay) ease-in infinite;
+  
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: hsla(63, 29%, 61%, 0.030);
+      border-radius: inherit;
+      animation: var(--bubble-sway-type) var(--bubble-sway-duration) var(--bubble-sway-delay) ease-in-out alternate infinite;
+    }
+  
+    @for $i from 0 through $bubble-count {
+      &:nth-child(#{$i}) {
+        --bubble-left-offset: #{random_range(0vw, 100vw)};
+        --bubble-radius: #{random_range(1vw, 10vw)};
+        --bubble-float-duration: #{random_range(6s, 12s)};
+        --bubble-sway-duration: #{random_range(4s, 6s)};
+        --bubble-float-delay: #{random_range(0s, 4s)};
+        --bubble-sway-delay: #{random_range(0s, 4s)};
+        --bubble-sway-type: #{sample($sway-type)};
+      }
+    }
+  }
+  
+  @keyframes float-up {
+    to {
+      transform: translateY(-175vh);
+    }
+  }
+  
+  @keyframes sway-left-to-right {
+    from {
+      transform: translateX(-10%);
+    }
+  
+    to {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes sway-right-to-left {
+    from {
+      transform: translateX(100%);
+    }
+  
+    to {
+      transform: translateX(-10%);
+    }
+  }
+
+
+  
+mat-button-toggle-group {
+  box-shadow: none;
+}
+
+mat-button-toggle {
+    background: #ffffff1c !important;
+    margin-top: 5px !important;
+    padding: 0 5px !important;
+    z-index: 3 !important;
+    border: 0px solid rgba(255, 255, 255, 0.486);
+    transition: 0.32s;
+}
+
+mat-button-toggle:hover {
+    background: #9696961c !important;
+    border: 0px solid rgba(255, 255, 255, 0.486);
+    // box-shadow: 0px 7px 7px 10px rgba(194, 194, 194, 0.041);
+}
+
+.mat-button-toggle-checked {
+    border: 0px #000 solid !important;
+    border-radius: 5px !important;
+    background: #9696961c !important;
+    border: 0px solid rgba(255, 255, 255, 0.486);
+}
+
+.mat-button-toggle-input {
+  background: #ffffff1c !important;
+    padding-left: 32px !important;
+    border: 0px solid rgba(255, 255, 255, 0.486);
+}
+
+
+
+.btn:hover{
+  background: #ffffff1c !important;
+  border: 1px solid rgba(255, 255, 255, 0.486);
+  box-shadow: 0px 7px 7px 10px rgba(194, 194, 194, 0.041);
+}
+
+
+.btn2 {
+  width: 10vw;
+  height: 60px;
+  cursor: pointer;
+  background: #ffffff1c !important;
+  outline: none;
+  transition: 0.1s;
+  color:white;
+  transition: 0.32s;
+}

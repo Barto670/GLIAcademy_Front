@@ -6,6 +6,9 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { LoginComponent} from "./login/login.component"
 import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './global/navbar/navbar.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
 imports: [
@@ -13,12 +16,15 @@ imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    MaterialModule      
+    MaterialModule, 
+    MatIconModule  
 ],
 exports: [RouterModule],
 declarations: [
     AppComponent,  
-    LoginComponent      
+    LoginComponent,
+    HomeComponent,
+    NavbarComponent    
 ],
 bootstrap: [AppComponent]
 })

@@ -1,0 +1,33 @@
+.container{
+
+
+    background-color: #ff9d00;
+    background-image: url("../../assets/images/background5.svg");
+    background-repeat:repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    // height: 100vh;
+    left:0;
+    top:0;
+    animation: slideshow 10s linear infinite;
+
+    // position: absolute;
+
+}
+
+@keyframes slideshow
+    {
+      0% {top:0;}
+      100% {top:-200%;}
+      
+    }
+
+    
+
+// body {
+//     background: linear-gradient(335deg, rgba(255,140,107,1) 0%, rgba(255,228,168,1) 100%);
+//     background-attachment: fixed;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     height: 200vh;
+//   }

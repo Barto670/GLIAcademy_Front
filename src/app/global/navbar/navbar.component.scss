@@ -1,0 +1,44 @@
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 5px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+.app-content {
+  padding: 4px;
+  height: 100%;
+}
+
+.mat-button:not(.override), .mat-button:not([override]), .mat-raised-button:not(.override), .mat-raised-button:not([override]) {
+  text-transform: uppercase;
+}
+
+
+a{
+    background-color: transparent;
+    color: #43484b;
+    font-size: 20px;
+    transition: 0.32s;
+}
+
+a:hover{
+    background-color: #43484b33;
+}
+
+mat-icon{
+  color: #43484b;
+  transition: 0.32s;
+}
+
+mat-icon:hover{
+  cursor: pointer;
+  color: #43484b75;
+}
