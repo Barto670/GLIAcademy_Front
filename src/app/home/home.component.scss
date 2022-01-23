@@ -1,26 +1,32 @@
 .container{
 
 
-    background-color: #ff9d00;
-    background-image: url("../../assets/images/background5.svg");
+    // background-color: #212121;
+    background-image: url("../../assets/images/background1.png");
     background-repeat:repeat;
     background-attachment: scroll;
-    background-size: cover;
+    background-size: cover !important;
+    // background-repeat: no-repeat !important;
+    // background-attachment: fixed !important;
+    // transform: rotate(deg);
+    
     // height: 100vh;
     left:0;
     top:0;
-    animation: slideshow 10s linear infinite;
+    // animation: slideshow 10s linear infinite;
 
-    // position: absolute;
+    position: fixed;
+    overflow-y: hidden;
 
 }
 
-@keyframes slideshow
-    {
-      0% {top:0;}
-      100% {top:-200%;}
+
+// @keyframes slideshow
+//     {
+//       0% {top:0;}
+//       100% {top:-200%;}
       
-    }
+//     }
 
     
 
