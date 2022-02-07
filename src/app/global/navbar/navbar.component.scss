@@ -27,10 +27,11 @@ a{
     color: white;
     font-size: 20px;
     transition: 0.32s;
+    border-radius: 10%;
 }
 
 a:hover{
-    background-color: #43484b33;
+    background-color: #9e9e9e33;
 }
 
 mat-icon{
@@ -40,5 +41,5 @@ mat-icon{
 
 mat-icon:hover{
   cursor: pointer;
-  color: #43484b75;
+  color: #d3d3d375;
 }
