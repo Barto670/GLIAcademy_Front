@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './global/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
+import { QuizComponent } from './quiz/quiz.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { TheoryComponent } from './theory/theory.component';
 
 @NgModule({
 imports: [
@@ -24,7 +27,10 @@ declarations: [
     AppComponent,  
     LoginComponent,
     HomeComponent,
-    NavbarComponent    
+    NavbarComponent,
+    QuizComponent,
+    StatisticsComponent,
+    TheoryComponent    
 ],
 bootstrap: [AppComponent]
 })
