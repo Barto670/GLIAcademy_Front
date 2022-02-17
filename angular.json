@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "CarRentalUI": {
+    "GLIacademy": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/CarRentalUI",
+            "outputPath": "dist/GLIacademy",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "CarRentalUI:build:production"
+              "browserTarget": "GLIacademy:build:production"
             },
             "development": {
-              "browserTarget": "CarRentalUI:build:development"
+              "browserTarget": "GLIacademy:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "CarRentalUI:build"
+            "browserTarget": "GLIacademy:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "CarRentalUI"
+  "defaultProject": "GLIacademy"
 }

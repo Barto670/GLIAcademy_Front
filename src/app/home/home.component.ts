@@ -9,9 +9,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(routing : Router) { }
 
   ngOnInit(): void {
   }
+
+  // goTo(page:String){
+  //   switch(page){
+  //     case 'theory':{
+  //       routing.navigate(['/'])
+  //     }
+  //   }
+  // }
 
 }
