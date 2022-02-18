@@ -1,0 +1,65 @@
+.container{
+    margin : 0px;
+    padding: 0px;
+    left:0;
+    top:0;
+    position: fixed;
+    overflow-y: hidden !important;
+    background-color: rgb(50, 50, 50);
+    // height: 92.5vh !important;
+    margin-top: 5vh;
+    height: calc(100vh- 5vh);
+}
+
+div{
+    margin : 0px;
+    padding: 0px;
+}
+
+.borderAroundPage{
+    margin : 0px;
+    padding: 0px;
+    border: 1px white solid; 
+    border-radius: 1vw;
+    margin-top: 1vh;
+}
+
+.quizBox{
+    padding: 1vh 1vw;
+    margin : 1vh 1vw;
+    border: 1px white solid; 
+}
+
+.quizQuestionTitle{
+    padding: 5vh;
+    margin : 0px;
+    max-height: 20px;
+}
+
+.quizQuestion{
+    padding: 8.5vh;
+    margin : 0px;
+}
+
+.textBox{
+    padding: 1vh 1vw;
+    margin : 1vh 1vw;
+    max-height: 15vh;
+    min-height: 15vh;
+    border: 1px white solid; 
+}
+
+.imageBox{
+    padding: 1vh 1vw;
+    margin : 1vh 1vw;
+    max-height: 57.7vh;
+    min-height: 57.7vh;
+    border: 1px white solid; 
+}
+
+
+h1{
+    font-size: 2vh;
+    margin : 0px;
+    padding: 0px;
+}
