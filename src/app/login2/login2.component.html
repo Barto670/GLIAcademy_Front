@@ -1,0 +1,61 @@
+
+
+<div class="container col-12" id="animationBackground" style="height: 110vh !important; margin: 0; width: 110%; overflow: hidden">
+
+    <div class="center frostedGlass" style="width: 450px; margin-top:25vh; height: 50vh; background-color: rgba(46, 46, 46, 0.089);">
+
+        <form [formGroup]="form" class="col-12" style="background-color: rgba(46, 46, 46, 0); margin: 0px; padding: 0px;">
+
+                <div class="col-12 row" style="margin-left: 0px;">
+
+                    <!-- <div class="col-6 btn2" style="border-right: 1px solid rgba(168, 168, 168, 0.089);">
+                        <h6 style="margin-top: 15px;margin-bottom: 15px;">Login</h6>
+                    </div>
+
+                    <div class="col-6 btn2">
+                        <h6 style="margin-top: 15px;margin-bottom: 15px;">Register</h6>
+                    </div> -->
+
+                    <mat-button-toggle-group formControlName="type" class="col-12 row" name="fontStyle" aria-label="Font Style" style="margin: 0px; padding: 0px;">
+                        <mat-button-toggle style="margin-top: 0px !important;" class="col-6" value="login">Login</mat-button-toggle>
+                        <mat-button-toggle style="margin-top: 0px !important;" class="col-6" value="register">Register</mat-button-toggle>
+                    </mat-button-toggle-group>
+
+                </div>
+                
+                <mat-divider style="border-color: azure;"></mat-divider>
+
+                <mat-card *ngIf="form.value.type == 'login'" class="col-12 row" style="margin-left: 0px; margin-top: 12%;">
+                    <mat-card class="col-12 inputBox">
+                        <input class="col-12"type="text" placeholder="Username" formControlName="username" style="margin-top:20px; background-color: 00000000;">
+                    </mat-card>
+                    
+                    <mat-card class="col-12 inputBox" style="margin-top: 4%;">
+                        <input class="col-12" type="password" placeholder="Password" formControlName="password" style="margin-top:20px;">
+                    </mat-card>
+    
+                    <button class="btn"  type="submit" (click)="submit()" style="margin-top:25%; "> Sign In</button>
+                </mat-card>
+
+                <mat-card *ngIf="form.value.type == 'register'" class="col-12 row" style="margin-left: 0px; margin-top: 7%;">
+                    <mat-card class="col-12 inputBox">
+                        <input class="col-12"type="text" placeholder="Username" formControlName="username" style="margin-top:20px; background-color: 00000000;">
+                    </mat-card>
+
+                    <mat-card class="col-12 inputBox" style="margin-top: 4%;">
+                        <input class="col-12"type="text" placeholder="Email" formControlName="email" style="margin-top:20px; background-color: 00000000;">
+                    </mat-card>
+                    
+                    <mat-card class="col-12 inputBox" style="margin-top: 4%;">
+                        <input class="col-12" type="password" placeholder="Password" formControlName="password" style="margin-top:20px;">
+                    </mat-card>
+    
+                    <button class="btn"  type="submit" (click)="submit()" style="margin-top:13%; "> Register</button>
+                </mat-card>
+
+                
+
+        </form>
+
+    </div>
+</div>

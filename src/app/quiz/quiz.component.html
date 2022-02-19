@@ -4,35 +4,92 @@
     <div class="borderAroundPage col-12 row">
         <div class="col-4">
             <div class="quizBox">
-                <div class="quizQuestionTitle">
-                    <h1>Sample Question goes here</h1>
+                <div class="quizQuestionTitle" style="color:#e79215 ; font-weight: bolder; font-size:2.5vh">
+                    What is incorrect about this image?
                 </div>
                 <div class="quizQuestion">
-                    <h1>1)</h1>
+                    <div id="answer1" selected="false" (click)="quizClicked('answer1')" class="selectQuestion">
+                        <h1>Wrong field colour</h1>
+                        
+                    </div>
                 </div>
                 <div class="quizQuestion">
-                    <h1>2)</h1>
+                    <div id="answer2" selected="false" (click)="quizClicked('answer2')" class="selectQuestion">
+                        <h1>Too many fields</h1>
+                    </div>
                 </div>
                 <div class="quizQuestion">
-                    <h1>3)</h1>
+                    <div id="answer3" selected="false" (click)="quizClicked('answer3')" class="selectQuestion">
+                        <h1>Missing translations</h1>
+                    </div>
                 </div>
-                <div class="quizQuestion">
-                    <h1>4)</h1>
+                <div class="quizQuestion" style="padding-bottom: 1vh;">
+                    <div id="answer4" selected="false" (click)="quizClicked('answer4')" class="selectQuestion" >
+                        <h1>Only one field is red</h1>
+                    </div>
                 </div>
+                <div class="gridCenter" style="height: 9vh;">
+                    <h5 *ngIf="correctAnswer" style="color:#e79215;display: inline;font-weight: bold;" class="gridCenter">Correct Answer <mat-icon  style="color:#e79215; position: relative; display: inline-block;">sentiment_very_satisfied</mat-icon></h5>
+                    <h5 *ngIf="wrongAnswer" style="color:#e71515;display: inline; font-weight: bold;" class="gridCenter">Incorrect Answer <mat-icon  style="color:#e71515; position: relative; display: inline-block;">sentiment_very_dissatisfied</mat-icon></h5>
+                    <h6 *ngIf="wrongAnswer">The correct answer was:  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, eos aliquam. Illo beatae esse quis sed aut necessitatibus, consequatur vitae reprehenderit excepturi fugit voluptate libero deleniti sequi corrupti, debitis modi!</h6>
+                </div>
+                <div class="gridCenter" style="margin-top:2vh;margin-bottom: 1.5vh;">
+                    <button *ngIf="!nextButton" id="checkAnswer" disabled="true"  mat-raised-button><h1 class="buttonFormat gridCenter">Check Answer</h1></button>
+                    <button *ngIf="!checkAnswer" id="nextButton" disabled="true" class="buttonFormat" mat-raised-button>Next ➤</button>
+                </div>
+                
             </div>
         </div>
         
-        <div class="col-8">
+        <div class="col-8 row">
+            <!-- <div class="textBox col-11 row"> -->
+                <!-- <div class="col-4 gridCenter">
+                    <div class="col-12 gridCenter">
+                        <h1 style="color:white; font-size:2vh">Section</h1>
+                    </div>
+                    <div class="col-12 gridCenter">
+                        <h1 style="color:#E79215; font-size:3vh;">Basics</h1>
+                    </div>
+                </div>
+                <div class="col-4 gridCenter">
+                    <div class="col-12 gridCenter">
+                        <h1 style="color:white; font-size:2vh">Stage</h1>
+                    </div>
+                    <div class="col-12 gridCenter">
+                        <h1 style="color:#E79215; font-size:3vh;">1/14</h1>
+                    </div>
+                </div> -->
+                <!-- <div class="col-4 gridCenter">
+                    <div class="col-12 gridCenter">
+                        <h1 style="color:white; font-size:2vh">Section</h1>
+                    </div>
+                    <div class="col-12 gridCenter">
+                        <h1 style="color:#E79215; font-size:3vh;">Basics</h1>
+                    </div>
+                </div> -->
+            <!-- </div> -->
+            <div class="col-1"> </div>
             <div class="textBox col-11" style="position: relative; display: grid; align-items: center; justify-content: center;">
-                <h1>Quiz Description</h1>
-            </div>
-            <div class="textBox col-11" style="position: relative; display: grid; align-items: center; justify-content: center;">
-                <h1>image</h1>
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat natus aliquid perspiciatis accusamus tenetur debitis beatae perferendis earum saepe velit necessitatibus voluptates, vero cumque architecto nihil error eum quod nulla?</h1>
             </div>
 
-            <div class="imageBox col-11" style="position: relative; display: grid; align-items: center; justify-content: center;">
-                <img style="overflow: hidden;object-fit:fill; height: 100%; width: 100%;" src="../../assets/images/quiz/test2.png" alt="">
+            <div class="imageBox col-11" style="position: relative; display: grid; align-items: top; justify-content: center;max-width: 100%; height: 100%;">
+                <img style="overflow: hidden;object-fit:cover;  position: relative; max-height: 55vh; min-height: 55vh;" src="../../assets/images/quiz/question1.png" alt="">
             </div>
+        </div>
+    </div>
+
+    <div style="position: fixed; background-color: #e79215; height: 5vh; top:95vh" class="col-12 row">
+        <div class="col-1 gridCenter" style="height: 5vh;">
+            <mat-icon class="leftRightArrow" style="font-size: 5vh; height: 5vh;">keyboard_arrow_left</mat-icon>
+        </div>
+        <div class="col-10 gridCenter" style="height: 5vh;">
+            <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">Basics [ 1/14 ]</h1>
+
+            <!-- <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">Basics 		<mat-icon style="max-width: 1vw; max-height: 1vh; font-size: 2vh;">arrow_left</mat-icon> 1/14 <mat-icon style="max-width: 1vw; max-height: 1vh;font-size: 2vh;">arrow_right</mat-icon></h1> -->
+        </div>
+        <div class="col-1 gridCenter" style="height: 5vh;">
+            <mat-icon class="leftRightArrow" style="font-size: 5vh; height: 5vh;">keyboard_arrow_right</mat-icon>
         </div>
     </div>
 

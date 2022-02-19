@@ -7,9 +7,11 @@ import { BrowseComponent } from './browse/browse.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { TheoryComponent } from './theory/theory.component';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { Login2Component } from './login2/login2.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'login2', component: Login2Component, data: { title: 'Login2' } },
   { path: 'home', component: HomeComponent, data: { title: 'Home' } },
   { path: 'about', component: AboutComponent, data: { title: 'About' } },
   { path: 'browse', component: BrowseComponent, data: { title: 'Browse' } },

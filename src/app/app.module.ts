@@ -12,6 +12,7 @@ import { MatIconModule} from '@angular/material/icon';
 import { QuizComponent } from './quiz/quiz.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { TheoryComponent } from './theory/theory.component';
+import { Login2Component } from './login2/login2.component';
 
 @NgModule({
 imports: [
@@ -26,6 +27,7 @@ exports: [RouterModule],
 declarations: [
     AppComponent,  
     LoginComponent,
+    Login2Component,
     HomeComponent,
     NavbarComponent,
     QuizComponent,
