@@ -146,22 +146,57 @@ h6{
 }
 
 // question box
-.selectQuestion[selected = false]{
+.selectQuestion[selected = false][disabled = false]{
     border: 1px white solid;
     padding: 1.5vh;
     transition: 0.2s border ease-in-out;
     border-radius: 1vh;
+    box-shadow: 0px 0px 10px 2px rgba(255, 145, 0, 0);
 }
 
-.selectQuestion[selected = true]{
+.selectQuestion[selected = false][disabled = true]{
+    border: 1px red solid;
+    padding: 1.5vh;
+    transition: 0.2s border ease-in-out;
+    border-radius: 1vh;
+    pointer-events: none;
+    box-shadow: 0px 0px 10px 2px rgba(255, 145, 0, 0);
+}
+
+.selectQuestion[selected = true][disabled = true]{
+    border: 1px green solid;
+    padding: 1.5vh;
+    transition: 0.2s border ease-in-out;
+    border-radius: 1vh;
+    pointer-events: none;
+    box-shadow: 0px 0px 10px 2px rgba(255, 145, 0, 0);
+}
+
+.selectQuestion[selected = true][disabled = false]{
     border: 1px #E79215 solid;
     padding: 1.5vh;
     border-radius: 1vh;
+    box-shadow: 0px 0px 10px 2px rgba(255, 145, 0, 0.255);
 }
 
-.selectQuestion:hover{
+.selectQuestion:hover[selected = false][disabled = false]{
     border: 1px #E79215 solid;
     cursor: pointer;
+    // animation: underglow 1000ms 1000ms 0ms ease-in-out forwards;
+    animation: underglow 1.3s ease-in-out 0s infinite alternate;
+    // box-shadow: 0px 0px 10px 5px rgba(255, 145, 0, 0.096);
+}
+
+@keyframes underglow{
+    100%{
+        box-shadow: 0px 0px 10px 2px rgba(255, 145, 0, 0.096);
+    }
+    50%{
+        box-shadow: 0px 0px 10px 2px rgba(255, 145, 0, 0.255);
+    }
+    0%{
+        box-shadow: 0px 0px 10px 2px rgba(255, 145, 0, 0.096);
+    }
 }
 
 //////right side/////

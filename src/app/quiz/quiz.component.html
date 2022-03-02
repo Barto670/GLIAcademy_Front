@@ -8,34 +8,33 @@
                     What is incorrect about this image?
                 </div>
                 <div class="quizQuestion">
-                    <div id="answer1" selected="false" (click)="quizClicked('answer1')" class="selectQuestion">
+                    <div id="1" selected="false" disabled="false" (click)="quizClicked('1')"  class="selectQuestion">
                         <h1>Wrong field colour</h1>
-                        
                     </div>
                 </div>
                 <div class="quizQuestion">
-                    <div id="answer2" selected="false" (click)="quizClicked('answer2')" class="selectQuestion">
+                    <div id="2" selected="false" disabled="false" (click)="quizClicked('2')" class="selectQuestion">
                         <h1>Too many fields</h1>
                     </div>
                 </div>
                 <div class="quizQuestion">
-                    <div id="answer3" selected="false" (click)="quizClicked('answer3')" class="selectQuestion">
+                    <div id="3" selected="false" disabled="false" (click)="quizClicked('3')" class="selectQuestion">
                         <h1>Missing translations</h1>
                     </div>
                 </div>
-                <div class="quizQuestion" style="padding-bottom: 1vh;">
-                    <div id="answer4" selected="false" (click)="quizClicked('answer4')" class="selectQuestion" >
+                <div class="quizQuestion" style="padding-bottom:1vh;">
+                    <div id="4" selected="false" disabled="false" (click)="quizClicked('4')" class="selectQuestion" >
                         <h1>Only one field is red</h1>
                     </div>
                 </div>
-                <div class="gridCenter" style="height: 9vh;">
+                <div class="gridCenter" style="height: 5vh;">
                     <h5 *ngIf="correctAnswer" style="color:#e79215;display: inline;font-weight: bold;" class="gridCenter">Correct Answer <mat-icon  style="color:#e79215; position: relative; display: inline-block;">sentiment_very_satisfied</mat-icon></h5>
                     <h5 *ngIf="wrongAnswer" style="color:#e71515;display: inline; font-weight: bold;" class="gridCenter">Incorrect Answer <mat-icon  style="color:#e71515; position: relative; display: inline-block;">sentiment_very_dissatisfied</mat-icon></h5>
                     <h6 *ngIf="wrongAnswer">The correct answer was: Ipsum dolor sit amet consectetur adipisicing elit. Aliquid, eos aliquam. Illo beatae esse quis sed aut necessitatibus, consequatur vitae reprehenderit excepturi fugit voluptate libero deleniti sequi corrupti, debitis modi!</h6>
                 </div>
-                <div class="gridCenter" style="margin-top:2vh;margin-bottom: 1.5vh;">
-                    <button *ngIf="!nextButton" id="checkAnswer" disabled="true"  mat-raised-button><h1 class="buttonFormat gridCenter">Check Answer</h1></button>
-                    <button *ngIf="!checkAnswer" id="nextButton" disabled="true" class="buttonFormat" mat-raised-button>Next ➤</button>
+                <div class="gridCenter" style="margin-top:8vh;">
+                    <button *ngIf="!questionCheckedAnswer" id="checkAnswer" [disabled]="questionClickedDisabled" (click)="turnOnNextButton()"  mat-raised-button><h1 class="buttonFormat gridCenter">Check Answer</h1></button>
+                    <button *ngIf="questionCheckedAnswer" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Next ➤</h1></button>
                 </div>
                 
             </div>
