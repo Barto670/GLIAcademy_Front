@@ -23,8 +23,23 @@ export class Login2Component implements OnInit {
   }
 
 
-  submit(){
-    this.router.navigate(['/home']);
+  // submit(){
+  //   this.router.navigate(['/home']);
+  // }
+
+  login(){
+    let loginInfo = {
+      email : this.form.value.email,
+      password : this.form.value.password
+    }
+  }
+
+  register(){
+    let registerInfo = {
+      username : this.form.value.username,
+      email : this.form.value.email,
+      password : this.form.value.password
+    }
   }
 
 }

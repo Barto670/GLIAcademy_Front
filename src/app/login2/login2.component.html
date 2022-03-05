@@ -28,14 +28,14 @@
 
                 <mat-card *ngIf="form.value.type == 'login'" class="col-12 row" style="margin-left: 0px; margin-top: 12%;">
                     <mat-card class="col-12 inputBox">
-                        <input class="col-12"type="text" placeholder="Username" formControlName="username" style="margin-top:20px; background-color: 00000000;">
+                        <input class="col-12"type="text" placeholder="E-mail" formControlName="email" style="margin-top:20px; background-color: 00000000;">
                     </mat-card>
                     
                     <mat-card class="col-12 inputBox" style="margin-top: 4%;">
                         <input class="col-12" type="password" placeholder="Password" formControlName="password" style="margin-top:20px;">
                     </mat-card>
     
-                    <button class="btn"  type="submit" (click)="submit()" style="margin-top:25%; "> Sign In</button>
+                    <button class="btn"  type="submit" (click)="login()" style="margin-top:25%; "> Sign In</button>
                 </mat-card>
 
                 <mat-card *ngIf="form.value.type == 'register'" class="col-12 row" style="margin-left: 0px; margin-top: 7%;">
@@ -44,14 +44,14 @@
                     </mat-card>
 
                     <mat-card class="col-12 inputBox" style="margin-top: 4%;">
-                        <input class="col-12"type="text" placeholder="Email" formControlName="email" style="margin-top:20px; background-color: 00000000;">
+                        <input class="col-12"type="text" placeholder="E-mail" formControlName="email" style="margin-top:20px; background-color: 00000000;">
                     </mat-card>
                     
                     <mat-card class="col-12 inputBox" style="margin-top: 4%;">
                         <input class="col-12" type="password" placeholder="Password" formControlName="password" style="margin-top:20px;">
                     </mat-card>
     
-                    <button class="btn"  type="submit" (click)="submit()" style="margin-top:13%; "> Register</button>
+                    <button class="btn"  type="submit" (click)="register()" style="margin-top:13%; "> Register</button>
                 </mat-card>
 
                 
