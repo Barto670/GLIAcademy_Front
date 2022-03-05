@@ -45,7 +45,7 @@ export class Login2Component implements OnInit {
     this.appServices.login(loginInfo).subscribe( userData => {
       localStorage.setItem('user', JSON.stringify(userData));
 
-      this.user = JSON.parse(localStorage.getItem('user')|| '{}');
+      this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
 
       console.log(this.user);
       this.router.navigate(['/home']);
@@ -58,7 +58,15 @@ export class Login2Component implements OnInit {
     let registerInfo = {
       username : this.form.value.username,
       email : this.form.value.email,
-      password : this.form.value.password
+      password : this.form.value.password,
+      answered : 0,
+      correct : 0,
+      firstName : '',
+      secondName : '',
+      level : 1,
+      section : 'Basics',
+      stage : 1,
+      successPercent : 0,
     }
 
     this.appServices.addUser(registerInfo).subscribe( data => {
