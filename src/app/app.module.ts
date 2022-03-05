@@ -13,6 +13,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { TheoryComponent } from './theory/theory.component';
 import { Login2Component } from './login2/login2.component';
+import { Home2Component } from './home2/home2.component';
 
 @NgModule({
 imports: [
@@ -29,6 +30,7 @@ declarations: [
     LoginComponent,
     Login2Component,
     HomeComponent,
+    Home2Component,
     NavbarComponent,
     QuizComponent,
     StatisticsComponent,

@@ -1,0 +1,42 @@
+.container{
+    margin : 0px;
+    padding: 0px;
+    left:0;
+    top:0;
+    position: fixed;
+    overflow-y: hidden !important;
+    background-color: rgb(50, 50, 50);
+    // height: 92.5vh !important;
+    margin-top: 5vh;
+    height: calc(100vh- 5vh);
+}
+
+div{
+    margin:0px;
+    padding: 0px;
+}
+
+.textBox{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+
+// @keyframes slideshow
+//     {
+//       0% {top:0;}
+//       100% {top:-200%;}
+      
+//     }
+
+    
+
+// body {
+//     background: linear-gradient(335deg, rgba(255,140,107,1) 0%, rgba(255,228,168,1) 100%);
+//     background-attachment: fixed;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     height: 200vh;
+//   }
