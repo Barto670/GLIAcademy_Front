@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppServices } from '../app.service';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login2.component.scss']
 })
 export class Login2Component implements OnInit {
+
+  user:any = [];
 
 
   public form: FormGroup = new FormGroup({
@@ -17,7 +20,7 @@ export class Login2Component implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private router: Router ) { }
+  constructor(private router: Router , private appServices: AppServices) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +41,17 @@ export class Login2Component implements OnInit {
       email : this.form.value.email,
       password : this.form.value.password
     }
+
+    this.appServices.login(loginInfo).subscribe( userData => {
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      this.user = JSON.parse(localStorage.getItem('user')|| '{}');
+
+      console.log(this.user);
+      this.router.navigate(['/home']);
+    })
+
+    
   }
 
   register(){
@@ -46,6 +60,10 @@ export class Login2Component implements OnInit {
       email : this.form.value.email,
       password : this.form.value.password
     }
+
+    this.appServices.addUser(registerInfo).subscribe( data => {
+      this.router.navigate(['/home']);
+    })
   }
 
 }

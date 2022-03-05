@@ -14,6 +14,9 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { TheoryComponent } from './theory/theory.component';
 import { Login2Component } from './login2/login2.component';
 import { Home2Component } from './home2/home2.component';
+import { AppServices } from './app.service';
+import { DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 imports: [
@@ -22,7 +25,8 @@ imports: [
     FormsModule,
     AppRoutingModule,
     MaterialModule, 
-    MatIconModule  
+    MatIconModule,
+    HttpClientModule,
 ],
 exports: [RouterModule],
 declarations: [
@@ -36,6 +40,7 @@ declarations: [
     StatisticsComponent,
     TheoryComponent    
 ],
+providers: [AppServices ,DatePipe,NavbarComponent],
 bootstrap: [AppComponent]
 })
 export class AppModule {
