@@ -1,36 +1,36 @@
 <app-navbar style="z-index: 100; position: fixed;"></app-navbar>
-<div class="container">
+<div *ngIf="currentQuestion" class="container">
     
     <div class="borderAroundPage col-12 row">
         <div class="col-4">
             <div class="quizBox">
                 <div class="quizQuestionTitle" style="color:#e79215 ; font-weight: bolder; font-size:2.5vh">
-                    What is incorrect about this image?
+                    {{currentQuestion.question}}
                 </div>
                 <div class="quizQuestion">
                     <div id="1" selected="false" disabled="false" (click)="quizClicked('1')"  class="selectQuestion">
-                        <h1>Wrong field colour</h1>
+                        <h1>{{currentQuestion.option1}}</h1>
                     </div>
                 </div>
                 <div class="quizQuestion">
                     <div id="2" selected="false" disabled="false" (click)="quizClicked('2')" class="selectQuestion">
-                        <h1>Too many fields</h1>
+                        <h1>{{currentQuestion.option2}}</h1>
                     </div>
                 </div>
                 <div class="quizQuestion">
                     <div id="3" selected="false" disabled="false" (click)="quizClicked('3')" class="selectQuestion">
-                        <h1>Missing translations</h1>
+                        <h1>{{currentQuestion.option3}}</h1>
                     </div>
                 </div>
                 <div class="quizQuestion" style="padding-bottom:1vh;">
                     <div id="4" selected="false" disabled="false" (click)="quizClicked('4')" class="selectQuestion" >
-                        <h1>Only one field is red</h1>
+                        <h1>{{currentQuestion.option4}}</h1>
                     </div>
                 </div>
                 <div class="gridCenter" style="height: 5vh;">
                     <h5 *ngIf="correctAnswer" style="color:#e79215;display: inline;font-weight: bold;" class="gridCenter">Correct Answer <mat-icon  style="color:#e79215; position: relative; display: inline-block;">sentiment_very_satisfied</mat-icon></h5>
                     <h5 *ngIf="wrongAnswer" style="color:#e71515;display: inline; font-weight: bold;" class="gridCenter">Incorrect Answer <mat-icon  style="color:#e71515; position: relative; display: inline-block;">sentiment_very_dissatisfied</mat-icon></h5>
-                    <h6 *ngIf="wrongAnswer">The correct answer was: Ipsum dolor sit amet consectetur adipisicing elit. Aliquid, eos aliquam. Illo beatae esse quis sed aut necessitatibus, consequatur vitae reprehenderit excepturi fugit voluptate libero deleniti sequi corrupti, debitis modi!</h6>
+                    <h6 *ngIf="wrongAnswer">The correct answer was: #{{currentQuestion.correctAnswer}} - {{currentQuestion.wrongDescription}} </h6>
                 </div>
                 <div class="gridCenter" style="margin-top:8vh;">
                     <button *ngIf="!questionCheckedAnswer" id="checkAnswer" [disabled]="questionClickedDisabled" (click)="turnOnNextButton()"  mat-raised-button><h1 class="buttonFormat gridCenter">Check Answer</h1></button>
@@ -75,7 +75,7 @@
             </div>
 
             <div class="imageBox col-11" style="position: relative; display: grid; align-items: top; justify-content: center;max-width: 100%; height: 100%;">
-                <img style="overflow: hidden;object-fit:cover;  position: relative; max-height: 55vh; min-height: 55vh;" src="../../assets/images/quiz/1.png" alt="">
+                <img style="overflow: hidden;object-fit:cover;  position: relative; max-height: 55vh; min-height: 55vh;" src="../../assets/images/quiz/{{currentQuestion.imageSource}}" alt="">
             </div>
         </div>
     </div>
@@ -85,7 +85,7 @@
             <mat-icon class="leftRightArrow" style="font-size: 5vh; height: 5vh;">keyboard_arrow_left</mat-icon>
         </div>
         <div class="col-10 gridCenter" style="height: 5vh;">
-            <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">Basics [ 1/14 ]</h1>
+            <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">{{currentQuestion.stageType}} [ {{currentQuestion.stageNumber}}/14 ]</h1>
 
             <!-- <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">Basics 		<mat-icon style="max-width: 1vw; max-height: 1vh; font-size: 2vh;">arrow_left</mat-icon> 1/14 <mat-icon style="max-width: 1vw; max-height: 1vh;font-size: 2vh;">arrow_right</mat-icon></h1> -->
         </div>

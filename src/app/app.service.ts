@@ -81,4 +81,19 @@ export class AppServices implements OnInit {
     return this.http.get<any>(this.serverUrl + '/getAllUsers/');
   }
 
+
+  //Quiz APIs
+
+  getAllQuestions(): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/getAllQuestions/');
+  }
+
+  getQuestionByStageTypeNumber(type:string,number:number): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/getQuestionByStageTypeNumber?type=' + `${type}`+'&number='+ `${number}`);
+  }
+
+  getQuestionByID(id:number): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/getQuestionByID?id=' + `${id}`);
+  }
+
 }

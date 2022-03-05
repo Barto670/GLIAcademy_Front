@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppServices } from '../app.service';
 
 @Component({
   selector: 'app-quiz',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
+  //user data
+  user :any;
 
   //disabling and enabling buttons
   questionClickedDisabled = true;
@@ -20,11 +23,21 @@ export class QuizComponent implements OnInit {
   questionAnswered : number = 0;
 
   //the correct answer number
-  correctAnswerNumber : number = 3;
+  correctAnswerNumber : number = 0;
 
-  constructor() { }
+  //the data for the questions so it can be loaded and displayed correctly
+  currentQuestionID : number = 0;
+  currentQuestion : any;
+
+  constructor( private appServices: AppServices) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+
+    this.currentQuestionID = this.user.stage;
+
+    this.getQuestions();
+    this.getUserByStageTypeNumber();
   }
 
   //when the user clicks on any answer we turn the button on
@@ -122,6 +135,21 @@ export class QuizComponent implements OnInit {
     elements.setAttribute("selected", "false");
     elements.setAttribute("disabled", "false");
 
+  }
+
+
+  getQuestions(){
+    this.appServices.getAllQuestions().subscribe( data => {
+      console.log(data);
+    })
+  }
+
+  getUserByStageTypeNumber(){
+    this.appServices.getQuestionByID(this.currentQuestionID).subscribe( data => {
+      console.log(data);
+      this.currentQuestion = data;
+      this.correctAnswerNumber = data.correctAnswer;
+    })
   }
 
 }
