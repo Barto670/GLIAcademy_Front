@@ -69,7 +69,11 @@ export class Login2Component implements OnInit {
       successPercent : 0,
     }
 
+    //login after user creates an account
     this.appServices.addUser(registerInfo).subscribe( data => {
+      localStorage.setItem('user', JSON.stringify(registerInfo));
+      this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+
       this.router.navigate(['/home']);
     })
   }
