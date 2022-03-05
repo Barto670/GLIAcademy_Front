@@ -12,7 +12,7 @@ export class Login2Component implements OnInit {
 
   public form: FormGroup = new FormGroup({
     type : new FormControl('login'),
-    username: new FormControl('', [Validators.required]),
+    username: new FormControl('',),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
@@ -22,10 +22,16 @@ export class Login2Component implements OnInit {
   ngOnInit(): void {
   }
 
-
-  // submit(){
-  //   this.router.navigate(['/home']);
-  // }
+  tabChange(){
+    console.log(this.form.value.type)
+    if(this.form.value.type == "register"){
+      this.form.controls['username'].setValidators([Validators.required, Validators.maxLength(20)]);   
+    }else{
+      this.form.controls['username'].clearValidators();     
+      
+    }
+    this.form.controls['username'].updateValueAndValidity(); 
+  }
 
   login(){
     let loginInfo = {

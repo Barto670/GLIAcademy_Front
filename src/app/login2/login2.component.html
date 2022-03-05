@@ -17,7 +17,7 @@
                     </div> -->
                     
 
-                    <mat-button-toggle-group formControlName="type" class="col-12 row" name="fontStyle" aria-label="Font Style" style="margin: 0px; padding: 0px;">
+                    <mat-button-toggle-group formControlName="type" class="col-12 row" name="fontStyle" (change)="tabChange()" aria-label="Font Style" style="margin: 0px; padding: 0px;">
                         <mat-button-toggle style="margin-top: 0px !important;" class="col-6" value="login">Login</mat-button-toggle>
                         <mat-button-toggle style="margin-top: 0px !important;" class="col-6" value="register">Register</mat-button-toggle>
                     </mat-button-toggle-group>
@@ -35,7 +35,7 @@
                         <input class="col-12" type="password" placeholder="Password" formControlName="password" style="margin-top:20px;">
                     </mat-card>
     
-                    <button class="btn"  type="submit" (click)="login()" style="margin-top:25%; "> Sign In</button>
+                    <button class="btn"  type="submit" [disabled]="!form.valid" (click)="login()" style="margin-top:25%; "> Sign In</button>
                 </mat-card>
 
                 <mat-card *ngIf="form.value.type == 'register'" class="col-12 row" style="margin-left: 0px; margin-top: 7%;">
@@ -51,7 +51,7 @@
                         <input class="col-12" type="password" placeholder="Password" formControlName="password" style="margin-top:20px;">
                     </mat-card>
     
-                    <button class="btn"  type="submit" (click)="register()" style="margin-top:13%; "> Register</button>
+                    <button class="btn"  type="submit" [disabled]="!form.valid" (click)="register()" style="margin-top:13%; "> Register</button>
                 </mat-card>
 
                 
