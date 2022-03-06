@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NumberValueAccessor } from '@angular/forms';
 import { AppServices } from '../app.service';
 
 @Component({
@@ -26,18 +27,41 @@ export class QuizComponent implements OnInit {
   correctAnswerNumber : number = 0;
 
   //the data for the questions so it can be loaded and displayed correctly
-  currentQuestionID : number = 0;
-  currentQuestion : any;
+  currentQuestion : any; // entire question loaded
+
+  currentStageNumber : number = 0; //question to load next
+  highestStageNumber : number = 0;
+
+
+  allowBack = false;
+  allowForwards = false;
 
   constructor( private appServices: AppServices) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+    this.currentStageNumber= this.user.stage;
 
-    this.currentQuestionID = this.user.stage;
+    // this.getQuestions();
+    this.updateUser();
 
-    this.getQuestions();
-    this.getUserByStageTypeNumber();
+    
+    
+
+  }
+
+  reloadBottomArrows(){
+    if(this.currentQuestion.id < this.user.stage){
+      this.allowForwards = true;
+    }else{
+      this.allowForwards = false;
+    }
+
+    if(this.currentQuestion.id == 1){
+      this.allowBack = false;
+    }else{
+      this.allowBack = true;
+    }
   }
 
   //when the user clicks on any answer we turn the button on
@@ -103,9 +127,8 @@ export class QuizComponent implements OnInit {
   onNextButtonClicked(){
 
     //switch to next question
-
-
-
+    this.highestStageNumber = this.currentStageNumber + 1;
+    this.currentStageNumber = this.currentStageNumber + 1;
 
     //disabling and enabling buttons
     this.questionClickedDisabled = true;
@@ -119,7 +142,7 @@ export class QuizComponent implements OnInit {
     this.questionAnswered = 0;
 
     //the correct answer number
-    this.correctAnswerNumber = 3;
+    this.correctAnswerNumber = 0;
 
     //all buttons off and disable them
     let elements:any = <HTMLInputElement> document.getElementById("1");
@@ -135,6 +158,8 @@ export class QuizComponent implements OnInit {
     elements.setAttribute("selected", "false");
     elements.setAttribute("disabled", "false");
 
+    this.updateUser();
+
   }
 
 
@@ -145,11 +170,88 @@ export class QuizComponent implements OnInit {
   }
 
   getUserByStageTypeNumber(){
-    this.appServices.getQuestionByID(this.currentQuestionID).subscribe( data => {
+    this.appServices.getQuestionByID(this.currentStageNumber).subscribe( data => {
       console.log(data);
       this.currentQuestion = data;
       this.correctAnswerNumber = data.correctAnswer;
+      this.reloadBottomArrows();
     })
+  }
+
+  updateUser(){
+    if(this.user.stage <this.highestStageNumber){
+      this.appServices.updateUserStage(this.user.id,this.highestStageNumber).subscribe( data => {
+        
+
+        let loginInfo = {
+          email : this.user.email,
+          password : this.user.password
+        }
+    
+        this.appServices.login(loginInfo).subscribe( userData => {
+          localStorage.setItem('user', JSON.stringify(userData));
+    
+          this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+          this.getUserByStageTypeNumber();
+        })
+
+        
+      })
+    }else{
+      let loginInfo = {
+        email : this.user.email,
+        password : this.user.password
+      }
+  
+      this.appServices.login(loginInfo).subscribe( userData => {
+        localStorage.setItem('user', JSON.stringify(userData));
+  
+        this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+        this.getUserByStageTypeNumber();
+      })
+    }
+  }
+
+  arrow(type: any){
+    //switch to next question
+    if(type == "forward"){
+      this.currentStageNumber = this.currentStageNumber + 1;
+    }else{
+      this.currentStageNumber = this.currentStageNumber - 1;
+    }
+    
+
+    
+
+    //disabling and enabling buttons
+    this.questionClickedDisabled = true;
+    this.questionCheckedAnswer = false;
+
+    //after a question is answered
+    this.correctAnswer = false;
+    this.wrongAnswer = false;
+
+    //the question we answer
+    this.questionAnswered = 0;
+
+    //the correct answer number
+    this.correctAnswerNumber = 0;
+
+    //all buttons off and disable them
+    let elements:any = <HTMLInputElement> document.getElementById("1");
+    elements.setAttribute("selected", "false");
+    elements.setAttribute("disabled", "false");
+    elements = <HTMLInputElement> document.getElementById("2");
+    elements.setAttribute("selected", "false");
+    elements.setAttribute("disabled", "false");
+    elements = <HTMLInputElement> document.getElementById("3");
+    elements.setAttribute("selected", "false");
+    elements.setAttribute("disabled", "false");
+    elements = <HTMLInputElement> document.getElementById("4");
+    elements.setAttribute("selected", "false");
+    elements.setAttribute("disabled", "false");
+
+    this.updateUser();
   }
 
 }

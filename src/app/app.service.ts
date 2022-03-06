@@ -81,6 +81,12 @@ export class AppServices implements OnInit {
     return this.http.get<any>(this.serverUrl + '/getAllUsers/');
   }
 
+  updateUserStage(id:number,stage:number): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/updateUserStage?id=' + `${id}`+'&stage='+ `${stage}`);
+  }
+
+  
+
 
   //Quiz APIs
 
