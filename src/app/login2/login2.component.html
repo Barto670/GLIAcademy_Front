@@ -7,16 +7,7 @@
         <form [formGroup]="form" class="col-12" style="background-color: rgba(46, 46, 46, 0); margin: 0px; padding: 0px;">
 
                 <div class="col-12 row" style="margin-left: 0px;">
-
-                    <!-- <div class="col-6 btn2" style="border-right: 1px solid rgba(168, 168, 168, 0.089);">
-                        <h6 style="margin-top: 15px;margin-bottom: 15px;">Login</h6>
-                    </div>
-                    
-                    <div class="col-6 btn2">
-                        <h6 style="margin-top: 15px;margin-bottom: 15px;">Register</h6>
-                    </div> -->
-                    
-
+            
                     <mat-button-toggle-group formControlName="type" class="col-12 row" name="fontStyle" (change)="tabChange()" aria-label="Font Style" style="margin: 0px; padding: 0px;">
                         <mat-button-toggle style="margin-top: 0px !important;" class="col-6" value="login">Login</mat-button-toggle>
                         <mat-button-toggle style="margin-top: 0px !important;" class="col-6" value="register">Register</mat-button-toggle>
