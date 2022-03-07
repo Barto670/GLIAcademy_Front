@@ -1,5 +1,5 @@
 <app-navbar style="z-index: 100; position: fixed;"></app-navbar>
-<div *ngIf="currentQuestion" class="container">
+<div *ngIf="currentQuestion && currentQuestion.type == 'Quiz'" class="container">
     
     <div class="borderAroundPage col-12 row">
         <div class="col-4">
@@ -34,7 +34,8 @@
                 </div>
                 <div class="gridCenter" style="margin-top:8vh;">
                     <button *ngIf="!questionCheckedAnswer" id="checkAnswer" [disabled]="questionClickedDisabled" (click)="turnOnNextButton()"  mat-raised-button><h1 class="buttonFormat gridCenter">Check Answer</h1></button>
-                    <button *ngIf="questionCheckedAnswer" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Next ➤</h1></button>
+                    <button *ngIf="questionCheckedAnswer && currentQuestion.stageNumber != quizCount" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Next ➤</h1></button>
+                    <button *ngIf="questionCheckedAnswer && currentQuestion.stageNumber == quizCount" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Finish Section ➤</h1></button>
                 </div>
                 
             </div>
@@ -69,9 +70,7 @@
             <!-- </div> -->
             <div class="col-1"> </div>
             <div class="textBox col-11" style="position: relative; display: grid; align-items: center; justify-content: center;">
-                <!-- <h1>The below image shows </h1> -->
-
-                <!-- <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat natus aliquid perspiciatis accusamus tenetur debitis beatae perferendis earum saepe velit necessitatibus voluptates, vero cumque architecto nihil error eum quod nulla?</h1> -->
+                <h1>{{currentQuestion.text}}</h1>
             </div>
 
             <div class="imageBox col-11" style="position: relative; display: grid; align-items: top; justify-content: center;max-width: 100%; height: 100%;">
@@ -85,7 +84,63 @@
             <mat-icon *ngIf="allowBack" class="leftRightArrow" style="font-size: 5vh; height: 5vh;" (click)="arrow('back')">keyboard_arrow_left</mat-icon>
         </div>
         <div class="col-10 gridCenter" style="height: 5vh;">
-            <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">{{currentQuestion.stageType}} [ {{currentQuestion.stageNumber}}/14 ]</h1>
+            <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">{{currentQuestion.stageType}} [ {{currentQuestion.stageNumber}}/{{quizCount}} ]</h1>
+
+            <!-- <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">Basics 		<mat-icon style="max-width: 1vw; max-height: 1vh; font-size: 2vh;">arrow_left</mat-icon> 1/14 <mat-icon style="max-width: 1vw; max-height: 1vh;font-size: 2vh;">arrow_right</mat-icon></h1> -->
+        </div>
+        <div class="col-1 gridCenter" style="height: 5vh;">
+            <mat-icon *ngIf="allowForwards" class="leftRightArrow" style="font-size: 5vh; height: 5vh;" (click)="arrow('forward')">keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="currentQuestion && currentQuestion.type == 'Theory'" class="container">
+    
+    <div class="borderAroundPage col-12 row">
+        <div class="col-4">
+            <div class="quizBox">
+                <div class="quizQuestionTitle" style="color:#e79215 ; font-weight: bolder; font-size:2.5vh">
+                    {{currentQuestion.question}}
+                </div>
+                <div class="quizQuestion">
+                    <h1>{{currentQuestion.option1}}</h1>
+                </div>
+                <div class="quizQuestion">
+                    <h1>{{currentQuestion.option2}}</h1>
+                </div>
+                <div class="quizQuestion">
+                    <h1>{{currentQuestion.option3}}</h1>
+                </div>
+                <div class="quizQuestion" style="padding-bottom:1vh;">
+                    <h1>{{currentQuestion.option4}}</h1>
+                </div>
+                <div class="gridCenter" style="margin-top:8vh;">
+                    <button *ngIf="currentQuestion.stageNumber != quizCount" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Next ➤</h1></button>
+                    <button *ngIf="currentQuestion.stageNumber == quizCount" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Finish Section ➤</h1></button>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="col-8 row">
+            <div class="col-1"> </div>
+            <div class="textBox col-11" style="position: relative; display: grid; align-items: center; justify-content: center;">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat natus aliquid perspiciatis accusamus tenetur debitis beatae perferendis earum saepe velit necessitatibus voluptates, vero cumque architecto nihil error eum quod nulla?</h1>
+            </div>
+
+            <div class="imageBox col-11" style="position: relative; display: grid; align-items: top; justify-content: center;max-width: 100%; height: 100%;">
+                <img style="overflow: hidden;object-fit:cover;  position: relative; max-height: 55vh; min-height: 55vh;" src="../../assets/images/quiz/{{currentQuestion.imageSource}}" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div style="position: fixed; background-color: #e79215; height: 5vh; top:95vh" class="col-12 row">
+        <div class="col-1 gridCenter" style="height: 5vh;">
+            <mat-icon *ngIf="allowBack" class="leftRightArrow" style="font-size: 5vh; height: 5vh;" (click)="arrow('back')">keyboard_arrow_left</mat-icon>
+        </div>
+        <div class="col-10 gridCenter" style="height: 5vh;">
+            <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">{{currentQuestion.stageType}} [ {{currentQuestion.stageNumber}}/{{quizCount}} ]</h1>
 
             <!-- <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">Basics 		<mat-icon style="max-width: 1vw; max-height: 1vh; font-size: 2vh;">arrow_left</mat-icon> 1/14 <mat-icon style="max-width: 1vw; max-height: 1vh;font-size: 2vh;">arrow_right</mat-icon></h1> -->
         </div>

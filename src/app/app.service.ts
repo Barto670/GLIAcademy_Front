@@ -102,4 +102,7 @@ export class AppServices implements OnInit {
     return this.http.get<any>(this.serverUrl + '/getQuestionByID?id=' + `${id}`);
   }
 
+  getQuestionTypeCount(stageType:string): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/getQuestionTypeCount?stageType=' + `${stageType}`);
+  }
 }

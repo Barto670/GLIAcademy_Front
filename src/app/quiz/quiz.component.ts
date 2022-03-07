@@ -12,6 +12,9 @@ export class QuizComponent implements OnInit {
   //user data
   user :any;
 
+  //Quiz counter for the quizType on the bottom eg. 2/12
+  quizCount : number = 0;
+
   //disabling and enabling buttons
   questionClickedDisabled = true;
   questionCheckedAnswer = false;
@@ -108,15 +111,7 @@ export class QuizComponent implements OnInit {
     //button clicked
     let element:any = <HTMLInputElement> document.getElementById(question);
 
-    //all buttons off
-    let elements:any = <HTMLInputElement> document.getElementById("1");
-    elements.setAttribute("selected", "false");
-    elements = <HTMLInputElement> document.getElementById("2");
-    elements.setAttribute("selected", "false");
-    elements = <HTMLInputElement> document.getElementById("3");
-    elements.setAttribute("selected", "false");
-    elements = <HTMLInputElement> document.getElementById("4");
-    elements.setAttribute("selected", "false");
+    this.setAllAnswersToDefaultSmall();
 
     //clicked button on
     element.setAttribute("selected", "true");
@@ -144,7 +139,31 @@ export class QuizComponent implements OnInit {
     //the correct answer number
     this.correctAnswerNumber = 0;
 
+    
     //all buttons off and disable them
+    if(this.currentQuestion.type == "Quiz"){
+      this.setAllAnswersToDefault();
+    }
+
+    this.updateUser();
+
+    
+
+  }
+
+  setAllAnswersToDefaultSmall(){
+    //all buttons off
+    let elements:any = <HTMLInputElement> document.getElementById("1");
+    elements.setAttribute("selected", "false");
+    elements = <HTMLInputElement> document.getElementById("2");
+    elements.setAttribute("selected", "false");
+    elements = <HTMLInputElement> document.getElementById("3");
+    elements.setAttribute("selected", "false");
+    elements = <HTMLInputElement> document.getElementById("4");
+    elements.setAttribute("selected", "false");
+  }
+
+  setAllAnswersToDefault(){
     let elements:any = <HTMLInputElement> document.getElementById("1");
     elements.setAttribute("selected", "false");
     elements.setAttribute("disabled", "false");
@@ -157,9 +176,6 @@ export class QuizComponent implements OnInit {
     elements = <HTMLInputElement> document.getElementById("4");
     elements.setAttribute("selected", "false");
     elements.setAttribute("disabled", "false");
-
-    this.updateUser();
-
   }
 
 
@@ -169,12 +185,30 @@ export class QuizComponent implements OnInit {
     })
   }
 
+  getQuizTypeCount(){
+    this.appServices.getQuestionTypeCount(this.currentQuestion.stageType).subscribe( data => {
+      this.quizCount = data;
+    })
+  }
+
   getUserByStageTypeNumber(){
     this.appServices.getQuestionByID(this.currentStageNumber).subscribe( data => {
       console.log(data);
       this.currentQuestion = data;
       this.correctAnswerNumber = data.correctAnswer;
+
+      console.log(this.currentQuestion);
+
+      //all buttons off and disable them
+      if(this.currentQuestion.type == "Quiz"){
+        setTimeout(() => 
+        {
+          this.setAllAnswersToDefault();
+        },
+        100);
+      }
       this.reloadBottomArrows();
+      this.getQuizTypeCount();
     })
   }
 
@@ -237,21 +271,11 @@ export class QuizComponent implements OnInit {
     //the correct answer number
     this.correctAnswerNumber = 0;
 
-    //all buttons off and disable them
-    let elements:any = <HTMLInputElement> document.getElementById("1");
-    elements.setAttribute("selected", "false");
-    elements.setAttribute("disabled", "false");
-    elements = <HTMLInputElement> document.getElementById("2");
-    elements.setAttribute("selected", "false");
-    elements.setAttribute("disabled", "false");
-    elements = <HTMLInputElement> document.getElementById("3");
-    elements.setAttribute("selected", "false");
-    elements.setAttribute("disabled", "false");
-    elements = <HTMLInputElement> document.getElementById("4");
-    elements.setAttribute("selected", "false");
-    elements.setAttribute("disabled", "false");
+    
 
     this.updateUser();
+
+    
   }
 
 }
