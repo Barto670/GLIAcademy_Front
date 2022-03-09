@@ -23,5 +23,84 @@ div{
     font-size: 30px;
 }
 
+.btn{
+    cursor: pointer;
+    background: #0e0e0e1c !important;
+    outline: none;
+    transition: 0.32s;
+    border: 2px solid #E7921500;
+    color:white;
+    font-size: 12px;
+  }
+  
+  .btn:hover{
+    background: #00000000 !important;
+    border: 2px solid rgb(50, 50, 50);
+    box-shadow: 0px 0px 10px 5px rgba(8, 8, 8, 0.1);
+  }
+  
+  
+  .btn2 {
+    width: 10vw;
+    height: 60px;
+    cursor: pointer;
+    background: #0e0e0e1c !important;
+    outline: none;
+    color:white;
+    transition: 0.32s;
+    border: 2px solid #E7921500;
+  }
+  
+  .btn2:hover{
+    background: #00000000 !important;
+    border: 2px solid rgb(50, 50, 50);
+    box-shadow: 0px 0px 10px 5px rgba(8, 8, 8, 0.2);
+  }
 
 
+//input
+
+button {
+    margin: 0;
+    line-height: inherit;
+}
+
+  input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: #323232;
+    color: white;
+    border-color: #00000000;
+    border-radius: 4px;
+}
+
+input:disabled, optgroup:disabled, select:disabled, textarea:disabled {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: #4e4e4eDD;
+    color: white;
+}
+
+.changeImage{
+    border: 1px solid white; 
+    background-color: rgb(50, 50, 50); 
+    border-radius: 10%; 
+    transition: 0.32s;
+}
+
+.changeImage:hover{
+    background-color: rgb(90, 90, 90); 
+    cursor:pointer
+}
+
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}

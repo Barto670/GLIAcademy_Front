@@ -18,6 +18,7 @@ import { AppServices } from './app.service';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
+import { popup } from './profile/popup/popup.component';
 
 @NgModule({
 imports: [
@@ -41,6 +42,7 @@ declarations: [
     StatisticsComponent,
     TheoryComponent,
     ProfileComponent,    
+    popup,
 ],
 providers: [AppServices ,DatePipe,NavbarComponent],
 bootstrap: [AppComponent]

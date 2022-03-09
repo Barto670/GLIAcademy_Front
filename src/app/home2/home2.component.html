@@ -10,7 +10,7 @@
                     <div class="col-sm-12 col-md-7 col-lg-7 col-xl-4" style=" height: 9.25vh !important; background-color: #6868682d; border-end-end-radius: 80px;vertical-align: -webkit-baseline-middle; " >
                         <!-- <div class="col-12 row"> -->
                             <div class="col-auto" style="padding-left:10px; display: inline-block; position: relative; margin-top:0.5vh; " >
-                                <img width="60vw" height="60vw" src="../../assets/images/profile/star.png"/>
+                                <img width="60vw" height="60vw" src="../../assets/images/profile/{{user.imageURL}}"/>
                                 <!-- style=" border-radius: 50%;" -->
                             </div>
                             <div class="col-auto" style="display: inline-block; position: relative; margin-top:0.5vh; vertical-align: -webkit-baseline-middle; margin-left: 2vw;">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-6" style="text-align: -webkit-center; background-color: #6868682d; border-top-right-radius: 80px;">
                     <div style="margin-top:6vh">
-                        <h2 style="color: orange">{{user.level}} <mat-icon *ngIf="user.level == 'Beginner'">star_border</mat-icon><mat-icon *ngIf="user.level == 'Intermediate'">star_half</mat-icon><mat-icon *ngIf="user.level == 'Expert'">star</mat-icon></h2>
+                        <h2 style="color: #E79215;">{{user.level}} <mat-icon *ngIf="user.level == 'Beginner'">star_border</mat-icon><mat-icon *ngIf="user.level == 'Intermediate'">star_half</mat-icon><mat-icon *ngIf="user.level == 'Expert'">star</mat-icon></h2>
                         <h2 style="color:white">Current Section : {{user.section}}</h2>
                         <h2 style="color:white">Current Stage : {{user.stage}}/{{quizCount}}</h2>
                     </div>
