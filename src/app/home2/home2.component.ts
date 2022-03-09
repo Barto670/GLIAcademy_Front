@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppServices } from '../app.service';
 
 @Component({
   selector: 'home2',
@@ -9,9 +10,21 @@ import { Router } from '@angular/router';
 })
 export class Home2Component implements OnInit {
 
-  constructor(routing : Router) { }
+  user :any;
+  quizCount : any = "";
+
+  constructor(private router: Router, private appServices: AppServices) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+
+    this.getQuizTypeCount();
+  }
+
+  getQuizTypeCount(){
+    this.appServices.getQuestionTypeCount(this.user.section).subscribe( data => {
+      this.quizCount = data;
+    })
   }
 
   // goTo(page:String){

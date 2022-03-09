@@ -7,22 +7,25 @@
             
             <div class="frostedGlassDiv row">
                 <div class="col-12 row">
-                    <div class="col-sm-auto col-md-auto col-lg-auto col-xl-auto" style=" height: 12vh !important; background-color: #6868682d; border-end-end-radius: 80px;" >
-                        <div class="col-12 row">
-                            <div class="col-3" style="padding:10px">
+                    <div class="col-sm-6 col-md-5 col-lg-5 col-xl-2" style=" height: 9.25vh !important; background-color: #6868682d; border-end-end-radius: 80px; " >
+                        <!-- <div class="col-12 row"> -->
+                            <div class="col-5" style="padding-left:10px; display: inline-block; position: relative; margin-top:0.5vh" >
                                 <img style=" border-radius: 50%;" width="80vw" height="80vw" src="../../assets/images/profile3.jpg"/>
                             </div>
-                            <h1 class="col-9" style="color:white; margin-top: 25px;">James Rain</h1>
+                            <div class="col-7" style="display: inline-block; position: relative; margin-top:0.5vh">
+                                <h1 style="position: relative;" style="color:white;">{{user.firstName}}</h1>
+                            </div>
                             
-                        </div>
+                            
+                        <!-- </div> -->
                     </div>
 
                 </div>
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-6" style="text-align: -webkit-center; background-color: #6868682d; border-top-right-radius: 80px;">
                     <div style="margin-top:6vh">
-                        <h2 style="color: orange">Intermediate <mat-icon>star_half</mat-icon></h2>
-                        <h2 style="color:white">Current Section : Languages</h2>
-                        <h2 style="color:white">Current Stage : 2/27</h2>
+                        <h2 style="color: orange">{{user.level}} <mat-icon *ngIf="user.level == 'Beginner'">star_border</mat-icon><mat-icon *ngIf="user.level == 'Intermediate'">star_half</mat-icon><mat-icon *ngIf="user.level == 'Expert'">star</mat-icon></h2>
+                        <h2 style="color:white">Current Section : {{user.section}}</h2>
+                        <h2 style="color:white">Current Stage : {{user.stage}}/{{quizCount}}</h2>
                     </div>
                 </div>
             </div>
