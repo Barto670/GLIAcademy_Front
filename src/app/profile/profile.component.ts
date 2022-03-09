@@ -1,15 +1,35 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+// import * as fs from 'fs';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  imageArray = ["rectangle.png","star.png"];
+  // imageArray :any = [
+  //   {
+  //     "imageUrl":"rectangle.png",
+  //   },
+  //   {
+  //     "imageUrl":"star.png",
+  //   },
+  // ];
+  
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+
   }
+
+  
+
+
+  
+  
+  
+  // <img src={images['doggy.png']} />
 
 }

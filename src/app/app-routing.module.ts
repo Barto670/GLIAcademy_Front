@@ -8,6 +8,7 @@ import { TheoryComponent } from './theory/theory.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { Login2Component } from './login2/login2.component';
 import { Home2Component } from './home2/home2.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'login2', component: LoginComponent, data: { title: 'Login2' } },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'quiz', component: QuizComponent, data: { title: 'Quiz' } },
   { path: 'theory', component: TheoryComponent, data: { title: 'Theory' } },
   { path: 'statistics', component: StatisticsComponent, data: { title: 'Statistics' } },
+  { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
 
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },

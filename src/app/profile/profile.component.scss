@@ -1,0 +1,24 @@
+.container{
+    margin : 0px;
+    padding: 0px;
+    left:0;
+    top:0;
+    position: fixed;
+    overflow-y: hidden !important;
+    background-color: rgb(50, 50, 50);
+    // height: 92.5vh !important;
+    margin-top: 5vh;
+    height: calc(100vh- 5vh);
+}
+
+div{
+    margin:0px;
+    padding: 0px;
+}
+
+.textBox{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}

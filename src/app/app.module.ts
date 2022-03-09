@@ -17,6 +17,7 @@ import { Home2Component } from './home2/home2.component';
 import { AppServices } from './app.service';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
 imports: [
@@ -38,7 +39,8 @@ declarations: [
     NavbarComponent,
     QuizComponent,
     StatisticsComponent,
-    TheoryComponent    
+    TheoryComponent,
+    ProfileComponent,    
 ],
 providers: [AppServices ,DatePipe,NavbarComponent],
 bootstrap: [AppComponent]
