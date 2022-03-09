@@ -7,19 +7,31 @@
 <div class="container gridAllignCenter">
     
     <div>
-        <h1>Edit Your Profile</h1>
-        <div class="col-12 row" style="background-color:grey;  border-radius: 20px; padding:2vh">
-            <div class="col-6 gridAllignCenter">
+        <h1 class="gridAllignCenter">Edit Your Profile</h1>
+        <div class="col-12 row" style="background-color:grey;  border-radius: 20px; padding:2vh; width:30vw">
 
+            <div class="col-12 gridAllignCenter" style="margin-bottom: 10vh;">
                 <img width="100" height="100"src="../../assets/images/profile/{{user.imageURL}}" /> 
-                
             </div>
-            <div class="col-6 gridAllignLeft">
-                {{user.email}}
+            <div class="gridAllignCenter">
+                <div class="col-12">
+                    <label class="col-12" for="name">Email: </label>
+                    <input disabled class="col-12" id="name" type="text">
+                </div>
+                <div class="col-12">
+                    <label class="col-12" for="name">Name: </label>
+                    <input class="col-12" id="name" type="text">
+                </div>
+                <div class="col-12">
+                    <label class="col-12" for="name">Surname: </label>
+                    <input class="col-12" id="name" type="text">
+                </div>
+                <div class="col-12" style="margin-bottom: 12vh;">
+                    <label class="col-12" for="name">Username: </label>
+                    <input class="col-12" id="name" type="text">
+                </div>
             </div>
-            <div class="col-12">
-
-            </div>
+            
         </div>
     </div>
 
