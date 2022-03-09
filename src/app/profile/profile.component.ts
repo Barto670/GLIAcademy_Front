@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  user : any;
   imageArray = ["rectangle.png","star.png"];
   // imageArray :any = [
   //   {
@@ -21,7 +22,7 @@ export class ProfileComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-
+    this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
   }
 
   
