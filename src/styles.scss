@@ -1,5 +1,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~ngx-toastr/toastr.css';
+
+
+
 @font-face {
     font-family: "Alata-Regular";
     src: url("assets/fonts/Alata-Regular.ttf");
@@ -136,6 +141,26 @@ div,h1,h2,h3,h4,h5,h6{
   }
   
 
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
 
 
 

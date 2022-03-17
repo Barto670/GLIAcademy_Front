@@ -19,6 +19,10 @@ import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
 import { popup } from './profile/popup/popup.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button'; 
 
 @NgModule({
 imports: [
@@ -29,6 +33,10 @@ imports: [
     MaterialModule, 
     MatIconModule,
     HttpClientModule,
+    MatTooltipModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    MatButtonModule,
 ],
 exports: [RouterModule],
 declarations: [

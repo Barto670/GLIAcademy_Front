@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppServices } from 'src/app/app.service';
+import { ProfileComponent } from '../profile.component';
 
 @Component({
   selector: 'popup',
@@ -11,8 +12,8 @@ import { AppServices } from 'src/app/app.service';
 export class popup implements OnInit {
 
   user : any;
-  imageArray = ["rectangle.png","star.png"];
-  constructor(private router: Router , private appService: AppServices) { }
+  imageArray = ["rectangle.png","star.png","default.png","badge.png","badge2.png","bolt.png","star2.png","3.png","heart.png","square.png","star3.png","circle.png"];
+  constructor(private router: Router , private appService: AppServices, private profileComponent: ProfileComponent) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,10 @@ export class popup implements OnInit {
 
   submit(){
 
+  }
+
+  close(){
+    this.profileComponent.popup = false
   }
 
 }

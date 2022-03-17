@@ -11,12 +11,12 @@
         <div class="col-12 row" style="background-color:#E79215;  border-radius: 20px; padding:2vh; width:30vw; box-shadow: 0px 0px 10px 5px rgba(8, 8, 8, 0.255);">
             <h1 class="gridAllignCenter" style="margin-bottom: 3vh;text-align: center;">Edit Your Profile</h1>
 
-            <div class="col-12 gridAllignCenter" style="margin-bottom: 2vh;">
-                <img class="changeImage" (click)="changeImage()" width="144" height="144"src="../../assets/images/profile/{{user.imageURL}}" /> 
+            <div class="col-12 gridAllignCenter" style="margin-bottom: 7vh;" >
+                <img class="changeImage" (click)="changeImage()" width="144" height="144"src="../../assets/images/profile/{{user.imageURL}}" #tooltip="matTooltip" matTooltip="Click to choose profile image" matTooltipPosition="above" /> 
             </div>
-            <div class="col-12 gridAllignCenter" style="margin-bottom: 5vh;">
+            <!-- <div class="col-12 gridAllignCenter" style="margin-bottom: 5vh;" >
                 <button class="btn" (click)="changeImage()" mat-raised-button>Edit Profile Picture</button>
-            </div>
+            </div> -->
             
             <form [formGroup]="form" class="gridAllignCenter">
 
