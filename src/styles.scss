@@ -162,8 +162,11 @@ div,h1,h2,h3,h4,h5,h6{
     z-index: 1;
   }
 
-
-
-
-
-  
+#toast-container > .toast-success {
+    color: black;
+    box-shadow: 0px 2px 10px 0px rgba(8, 8, 8, 0.3);
+}
+#toast-container > .toast-error {
+    color: black;
+    box-shadow: 0px 2px 10px 0px rgba(8, 8, 8, 0.3);
+}

@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 // import { ToastrService } from 'ngx-toastr';
 
 const httpOptions = {
@@ -17,11 +18,29 @@ export class AppServices implements OnInit {
 
   public serverUrl =   'http://localhost:8082'
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private toastr: ToastrService) {
 
   }
 
   ngOnInit() {}
+
+
+  showSuccess(message: string) {
+    this.toastr.success(message);
+  }
+
+
+
+  showError(message : string) {
+    this.toastr.error(message);
+  }
+
+
+
+  showWarning(message : string) {
+    this.toastr.warning(message);
+  }
+
 
   // sampleGet(): Observable<any> {
   //   return this.http.get<any>(this.serverUrl + '/sampleGet/')
@@ -83,6 +102,10 @@ export class AppServices implements OnInit {
 
   updateUserStage(id:number,stage:number): Observable<any> {
     return this.http.get<any>(this.serverUrl + '/updateUserStage?id=' + `${id}`+'&stage='+ `${stage}`);
+  }
+
+  updateUserImage(id:number,image:string): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/updateUserImage?id=' + `${id}`+'&image='+ `${image}`);
   }
 
   

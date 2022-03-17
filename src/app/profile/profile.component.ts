@@ -49,6 +49,11 @@ export class ProfileComponent implements OnInit {
     this.popup = true;
   }
   
+
+  updateImage(){
+    this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+  }
+  
   
   
   // <img src={images['doggy.png']} />

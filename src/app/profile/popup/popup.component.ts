@@ -13,9 +13,10 @@ export class popup implements OnInit {
 
   user : any;
   imageArray = ["rectangle.png","star.png","default.png","badge.png","badge2.png","bolt.png","star2.png","3.png","heart.png","square.png","star3.png","circle.png"];
-  constructor(private router: Router , private appService: AppServices, private profileComponent: ProfileComponent) { }
+  constructor(private router: Router , private appServices: AppServices, private profileComponent: ProfileComponent) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
   }
 
 
@@ -25,6 +26,23 @@ export class popup implements OnInit {
 
   close(){
     this.profileComponent.popup = false
+  }
+
+  chooseImage(imageURL :any){
+    console.log(imageURL) 
+
+    this.appServices.updateUserImage(this.user.id,imageURL).subscribe( userData => {
+
+      this.user.imageURL = imageURL;
+
+      localStorage.setItem('user', JSON.stringify(this.user));
+
+      this.profileComponent.updateImage()
+
+      this.appServices.showSuccess("Succesfully updated image")
+
+      this.profileComponent.popup = false
+    })
   }
 
 }
