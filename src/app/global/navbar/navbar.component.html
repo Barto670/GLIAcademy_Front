@@ -1,4 +1,4 @@
-<mat-toolbar style="background-color: #3a3a3ad9; padding-left: 0px !important;position: fixed;z-index: 1; height: 5vh; -webkit-backdrop-filter: blur(8px);  /* Safari 9+ */backdrop-filter: blur(8px);box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);" class="mat-elevation-z2">
+<mat-toolbar style="background-color: #3a3a3ad9; padding-left: 0px !important;position: fixed;z-index: 1; height: 5vh;box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);" class="mat-elevation-z2">
 	<!-- <mat-icon style="margin-left: 15px;" routerLink="/home">home</mat-icon> -->
 	<nav style="width: 2%;">
 		<!-- #3a3a3ad9; -->
@@ -20,6 +20,13 @@
 	
 	<mat-icon routerLink="/login" style="font-size: 30px; margin-left: 30px;margin-right: 50px;">logout</mat-icon>
 
+
+	<div *ngIf="!chat" class="chatDiv" attr.value="{{newMessages}}" >
+        
+		<img class="chatIcon"  (click)="chatPopup()"  src="../../../assets/icons/chat.png" > 
+  
+  	</div>
+  
 	
 
 </mat-toolbar>

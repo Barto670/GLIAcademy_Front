@@ -43,3 +43,121 @@ mat-icon:hover{
   cursor: pointer;
   color: #d3d3d375;
 }
+
+
+
+
+
+
+.chatDiv{
+  position: fixed;
+  z-index: 1000; 
+  top: 89vh; 
+  left: 94.5vw;
+  right: 0vw;
+  width: 3.6vw;
+  height: auto;
+}
+
+.chatDiv:hover{
+  .chatIcon{
+    opacity: 0.0;
+    transform: scale(1);
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
+  
+}
+
+.chatDiv:hover.chatDiv::after{
+  background-color: #9a9a9a !important;
+  transform: scale(0.0);
+  opacity: 0;
+}
+
+
+
+.chatDiv:hover::before{
+  opacity: 1;
+  background-color: #9a9a9a;
+  transform: scale(0.99);
+  border: white 2px solid;
+}
+
+.chatDiv::before{
+    content:"💬";
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    opacity: 0;
+    transition: 0.32s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.8);
+    font-size: 2.1vw !important;
+    border: #00577400 2px solid;
+    display: flex;
+    text-align: -webkit-center;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.chatDiv::after{
+  content:attr(value);
+  background-color: #ee213c;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  opacity: 1;
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  top: -1vh;
+  left: 1.95vw;
+  width: 45%;
+  height: 45%;
+  font-size: 0.95vw !important;
+  text-align: -webkit-center;
+  text-align: center;
+  justify-content: center;
+  border: #00577400 2px solid;
+  font-weight: bold;
+}
+
+.chatIcon{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  opacity: 1;
+  transition: 0.55s cubic-bezier(0.49, 0.77, 0.58, 1.43);
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8);
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+
+.mat-badge-content {
+  position: fixed;
+  z-index: 1000;
+  top: 88vh !important;
+  left: 96.5vw !important;
+  width: 2vw;
+  height: auto;
+  border-radius: 50%;
+}
+
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+  right: -0.5vw;
+}
+
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+  top: -1vh;
+}

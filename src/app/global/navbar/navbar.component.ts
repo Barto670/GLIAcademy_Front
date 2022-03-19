@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  chat = false;
+  newMessages = 1;
+
+
 
   constructor() { }
 
@@ -16,6 +20,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  chatPopup(){
+    this.chat = true;
   }
 
 }
