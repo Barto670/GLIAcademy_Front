@@ -62,14 +62,14 @@ export class chat implements OnInit {
     this.navbar.chat = false
   }
 
-  addChat(){
+  sendChat(){
 
     var tempMessage = {
       message: this.form.value.message,
       messageSend : new Date(),
       senderID : this.user.id,
       senderName : this.user.firstName,
-      senderSurname : this.user.lastName,
+      senderSurname : this.user.secondName,
       senderImage : this.user.imageURL
     }
 

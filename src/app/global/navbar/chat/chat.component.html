@@ -1,15 +1,15 @@
 
 <div class="wrapper">
     <div style="width: 90%;height:90%;border: 1px solid #666871; background: #393c42; border-radius: 15px;" >
-        <div class="row "style="height: 10%;border-top-left-radius: 15px;border-top-right-radius: 15px;text-align: center;background-color:#e793152f;">
+        <div class="row "style="height: 10%;border-top-left-radius: 15px;border-top-right-radius: 15px;text-align: center; background-color:#d38116 ; padding: 0px;margin: 0px; margin-bottom:1vh">
             <div class="col-1"></div>
             <div class="gridAllignCenter col-10" style="height:100%; ">Public Chat</div>
-            <div class="col-1" style="display: flex; justify-content: center; align-items: center;"><mat-icon (click)="close()" class="closeButton" style="border-radius: 25%;">close</mat-icon></div>
+            <div class="col-1" style="display: flex; justify-content: right; align-items: center;"><mat-icon (click)="close()" class="closeButton" style="border-radius: 25%; margin-right: 1vw;">close</mat-icon></div>
         </div>
 
-        <div style="height: 80%; background-color: #552e021c !important;">
+        <div style="height: 75%; background-color: #552e021c !important; overflow: auto;">
 
-            <table *ngIf="matTableDataSource" mat-table [dataSource]="matTableDataSource" >
+            <table *ngIf="matTableDataSource" mat-table [dataSource]="matTableDataSource" style="margin-left: 1%;">
 
                 <ng-container  matColumnDef="message"> 
                   <th mat-header-cell *matHeaderCellDef class="td-message"></th> 
@@ -17,11 +17,11 @@
                     <div *ngIf="user.id != element.senderID" style="text-align: -webkit-left;" class="col-12 row ">
                       <div class="col-6 row left">
                         <div class="col-1">
-                          <img width="60" height="60"src="../../assets/images/profile/{{element.senderImage}}"/> 
+                          <img class="leftImage" width="60" height="60"src="../../assets/images/profile/{{element.senderImage}}"/> 
                         </div>
                         <div class="col-11">
                           <h4>{{element.message}}</h4>
-                          <h6 style="color:black">{{element.senderName}} {{element.senderSurname}}</h6>
+                          <h6 style="color:white; font-size: 12px;">{{element.senderName}} {{element.senderSurname}}</h6>
                         </div>
                       </div>
                       <div class="col-6"></div>
@@ -32,10 +32,10 @@
                         
                         <div class="col-11">
                           <h4>{{element.message}}</h4>
-                          <h6 style="color:black">{{element.senderName}} {{element.senderSurname}}</h6>
+                          <h6 style="color:white;font-size: 12px;">{{element.senderName}} {{element.senderSurname}}</h6>
                         </div>
                         <div class="col-1">
-                          <img width="60" height="60"src="../../assets/images/profile/{{element.senderImage}}"/> 
+                          <img class="rightImage" width="60" height="60"src="../../assets/images/profile/{{element.senderImage}}"/> 
                         </div>
                       </div>
                     </div>
@@ -54,8 +54,27 @@
 
         </div>
 
-        <div style="height: 10%;">
-            <div style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; background-color: #e793150a;">Send messages and send message</div>
+        <div style="height: 15% !important;">
+          <form [formGroup]="form" class="col-12 row" style="text-align: -webkit-left;background-color: #d38116 ; margin:0px; padding:0px;"> 
+
+            <mat-form-field appearance="fill" class="col-11"> 
+  
+              <textarea  matInput
+              cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize"
+              cdkAutosizeMinRows="1"
+                 cdkAutosizeMaxRows="4" type="text" formControlName="message" (keydown.enter)="$event.preventDefault(); sendChat()" placeholder="Message..."></textarea>
+            
+            </mat-form-field> 
+  
+            <div class="col-1" style="display: flex; justify-content: center; align-items: center;">
+              <button class="messageButton" mat-raised-button [disabled]="!form.valid" name="sendButton" (click)="sendChat()"><mat-icon>send</mat-icon></button>
+            </div>
+            
+    
+            
+          </form> 
+  
         </div>
         
 
