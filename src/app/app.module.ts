@@ -23,6 +23,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'; 
+import { chat } from './global/navbar/chat/chat.component'
 
 @NgModule({
 imports: [
@@ -51,6 +52,7 @@ declarations: [
     TheoryComponent,
     ProfileComponent,    
     popup,
+    chat,
 ],
 providers: [AppServices ,DatePipe,NavbarComponent],
 bootstrap: [AppComponent]

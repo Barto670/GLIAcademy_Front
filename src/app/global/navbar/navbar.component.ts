@@ -13,7 +13,6 @@ export class NavbarComponent implements OnInit {
   newMessages = 1;
 
 
-
   constructor() { }
 
 
