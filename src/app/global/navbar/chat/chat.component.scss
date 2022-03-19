@@ -210,3 +210,7 @@ table td.mat-cell:last-of-type, table td.mat-footer-cell:last-of-type {
   background: #d38116;
   border-radius: 10px;
 }
+
+::placeholder{
+  color: rgb(211, 211, 211);
+}
