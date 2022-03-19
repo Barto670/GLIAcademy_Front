@@ -77,3 +77,86 @@
   transform: scale(1.2);
   cursor: pointer;
 }
+
+
+
+table {
+  width: 100%;
+  table-layout: auto;
+}
+
+
+.mat-table {
+  background: #d3811660;
+}
+
+
+table td.mat-cell:last-of-type, table td.mat-footer-cell:last-of-type, table th.mat-header-cell:last-of-type {
+  padding-right: 0px; 
+  border: 0px
+}
+
+
+table td.mat-cell:first-of-type, table td.mat-footer-cell:first-of-type, table th.mat-header-cell:first-of-type {
+  padding-right: 0px; 
+  border: 0px
+}
+
+table th:hover {
+  color: #0000;
+  border-bottom: solid #ffffff00 0px !important;
+  background-color: #d3811600 !important;
+}
+
+
+.td-message , .th-message {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 200px;
+  
+}
+
+.left{
+  background: #9b9b9b; 
+  padding: 13px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.right{
+  background: #d38116 ;
+  padding: 13px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+
+
+
+table td.mat-cell:last-of-type, table td.mat-footer-cell:last-of-type {
+  border-left: 1px #d38116AA  solid;
+  padding: 10px;
+  vertical-align: middle;
+  font-size: smaller;
+}
+
+
+:host .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #d38116 !important;
+  border: 1px solid #d38116  !important;
+  border-bottom: solid 2px #d38116  !important;
+  width: 57.4vw ;
+}
+
+
+.messageButton:not(:disabled):hover {
+  opacity: 0.5 !important;
+  border-radius: 5px;
+  color: #fff;
+}
+.messageButton:disabled {
+  background: #d3811650  !important;
+  color: #fff;
+  transition: 0.32s;
+  border: #d38116  1px solid;
+}

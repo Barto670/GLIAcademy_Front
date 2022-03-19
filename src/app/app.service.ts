@@ -128,4 +128,22 @@ export class AppServices implements OnInit {
   getQuestionTypeCount(stageType:string): Observable<any> {
     return this.http.get<any>(this.serverUrl + '/getQuestionTypeCount?stageType=' + `${stageType}`);
   }
+
+
+
+  //Chat APIs
+
+  getAllChats(): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/getAllChats/');
+  }
+
+  getChatByID(id:number): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/getChatByID?id=' + `${id}`);
+  }
+
+  addChat(payload:any){
+    return this.http.post<any>(this.serverUrl + '/addChat', payload);
+  }
+
+
 }

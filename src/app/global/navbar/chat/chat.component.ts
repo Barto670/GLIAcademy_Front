@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ThrowStmt } from '@angular/compiler';
+import {Component, EventEmitter, OnInit, Output, QueryList, ViewChildren} from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { AppServices } from 'src/app/app.service';
 import { NavbarComponent } from '../navbar.component';
+
+
 
 @Component({
   selector: 'chat',
@@ -12,12 +18,40 @@ import { NavbarComponent } from '../navbar.component';
 export class chat implements OnInit {
 
   user : any;
+  
+
+  matTableDataSource = new MatTableDataSource; 
+
+  public matTableColumnDisplay: string[] = ['message','messageSent']; 
+
+  public form: FormGroup = new FormGroup({ 
+
+    message: new FormControl('', Validators.required), 
+
+ }); 
+
+  @ViewChildren(MatPaginator) matTableGenericPaginator!: QueryList<MatPaginator>;
+
+  @ViewChildren(MatSort) matTableSort!: QueryList<MatSort>;
+
 
   constructor(private router: Router , private appServices: AppServices, private navbar: NavbarComponent) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+
+
+    this.matTableDataSource.data = []; 
+
+    this.getChats();
   }
+
+  ngAfterViewInit() { 
+      
+    this.matTableDataSource.paginator = this.matTableGenericPaginator.toArray()[0]; 
+    this.matTableDataSource.sort = this.matTableSort.toArray()[0];  
+ 
+  } 
 
 
   submit(){
@@ -28,19 +62,28 @@ export class chat implements OnInit {
     this.navbar.chat = false
   }
 
-  chooseImage(imageURL :any){
-    console.log(imageURL) 
+  addChat(){
 
-    this.appServices.updateUserImage(this.user.id,imageURL).subscribe( userData => {
+    var tempMessage = {
+      message: this.form.value.message,
+      messageSend : new Date(),
+      senderID : this.user.id,
+      senderName : this.user.firstName,
+      senderSurname : this.user.lastName,
+      senderImage : this.user.imageURL
+    }
 
-      this.user.imageURL = imageURL;
+    this.appServices.addChat(tempMessage).subscribe( data => {
+      this.getChats();
+    })
 
-      localStorage.setItem('user', JSON.stringify(this.user));
+  }
 
-      this.appServices.showSuccess("Succesfully updated image")
-
-      this.navbar.chat = false
+  getChats(){
+    this.appServices.getAllChats().subscribe( data => {
+      this.matTableDataSource = data;
     })
   }
+  
 
 }
