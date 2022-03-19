@@ -1,7 +1,20 @@
 
 <div class="wrapper">
     <div style="width: 90%;height:90%;border: 1px solid #666871; background: #393c42; border-radius: 15px;" >
-        <h1 class="gridAllignCenter" style="margin-bottom: 3vh;border-top-left-radius: 15px;border-top-right-radius: 15px;text-align: center;background-color:#E79215; padding-top:5px;padding-bottom: 5px;">Public Chat</h1>
+        <div class="row "style="height: 10%;border-top-left-radius: 15px;border-top-right-radius: 15px;text-align: center;background-color:#e793152f;">
+            <div class="col-1"></div>
+            <div class="gridAllignCenter col-10" style="height:100%; ">Public Chat</div>
+            <div class="col-1" style="display: flex; justify-content: center; align-items: center;"><mat-icon (click)="close()" class="closeButton" style="border-radius: 25%;">close</mat-icon></div>
+        </div>
+
+        <div style="height: 80%;">
+            <div style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; background-color: #E79215;">chat</div>
+        </div>
+
+        <div style="height: 10%;">
+            <div style="height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; background-color: #e793150a;">Send messages and send message</div>
+        </div>
+        
 
     </div>
 

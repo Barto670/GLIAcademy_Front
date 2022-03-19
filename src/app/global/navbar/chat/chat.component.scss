@@ -64,3 +64,16 @@
 }
 
   
+
+.closeButton{
+  background-color: #393c42;
+  transition: 0.32s;
+  transform: scale(1);
+  cursor: default;
+}
+
+.closeButton:hover{
+  background-color: #555555;
+  transform: scale(1.2);
+  cursor: pointer;
+}
