@@ -108,6 +108,14 @@ export class AppServices implements OnInit {
     return this.http.get<any>(this.serverUrl + '/updateUserImage?id=' + `${id}`+'&image='+ `${image}`);
   }
 
+  updateUserSection(id:number,section:string): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/updateUserSection?id=' + `${id}`+'&section='+ `${section}`);
+  }
+
+  updateUserSectionStage(id:number,sectionStage:number): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/updateUserSectionStage?id=' + `${id}`+'&sectionStage='+ `${sectionStage}`);
+  }
+
   
 
 

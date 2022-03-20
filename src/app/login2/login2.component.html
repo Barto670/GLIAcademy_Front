@@ -2,7 +2,7 @@
 
 <div class="container col-12" id="animationBackground" style=" margin: 0; overflow: hidden">
 
-    <div class="center frostedGlass" style="width: 450px; margin-top:32vh; height: 50vh; background-color: rgba(46, 46, 46, 0.089);">
+    <div class="center frostedGlass" style="width: 450px; margin-top:27vh; height: 50vh; background-color: rgba(46, 46, 46, 0.089);">
 
         <form [formGroup]="form" class="col-12" style="background-color: rgba(46, 46, 46, 0); margin: 0px; padding: 0px;">
 
@@ -29,9 +29,17 @@
                     <button class="btn"  type="submit" [disabled]="!form.valid" (click)="login()" style="margin-top:25%; "> Sign In</button>
                 </mat-card>
 
-                <mat-card *ngIf="form.value.type == 'register'" class="col-12 row" style="margin-left: 0px; margin-top: 7%; background-color: #313131; box-shadow: 0px 0px 0px 0px rgba(8, 8, 8, 0.3);">
+                <mat-card *ngIf="form.value.type == 'register'" class="col-12 row" style="margin-left: 0px; margin-top: 4%; background-color: #313131; box-shadow: 0px 0px 0px 0px rgba(8, 8, 8, 0.3);">
                     <mat-card class="col-12 inputBox">
                         <input class="col-12"type="text" placeholder="Username" formControlName="username" style="margin-top:20px; background-color: 00000000;">
+                    </mat-card>
+
+                    <mat-card class="col-12 inputBox" style="margin-top: 4%;">
+                        <input class="col-12"type="text" placeholder="Name" formControlName="firstName" style="margin-top:20px; background-color: 00000000;">
+                    </mat-card>
+
+                    <mat-card class="col-12 inputBox" style="margin-top: 4%;">
+                        <input class="col-12"type="text" placeholder="Surname" formControlName="secondName" style="margin-top:20px; background-color: 00000000;">
                     </mat-card>
 
                     <mat-card class="col-12 inputBox" style="margin-top: 4%;">
@@ -42,7 +50,7 @@
                         <input class="col-12" type="password" placeholder="Password" formControlName="password" style="margin-top:20px;">
                     </mat-card>
     
-                    <button class="btn"  type="submit" [disabled]="!form.valid" (click)="register()" style="margin-top:13%; "> Register</button>
+                    <button class="btn"  type="submit" [disabled]="!form.valid" (click)="register()" style="margin-top:5%; "> Register</button>
                 </mat-card>
 
                 

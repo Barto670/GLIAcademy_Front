@@ -18,6 +18,8 @@ export class Login2Component implements OnInit {
     username: new FormControl('',),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
+    firstName : new FormControl('',),
+    secondName : new FormControl('',),
   });
 
   constructor(private router: Router , private appServices: AppServices) { }
@@ -29,11 +31,17 @@ export class Login2Component implements OnInit {
     console.log(this.form.value.type)
     if(this.form.value.type == "register"){
       this.form.controls['username'].setValidators([Validators.required, Validators.maxLength(20)]);   
+      this.form.controls['firstName'].setValidators([Validators.required, Validators.maxLength(30)]); 
+      this.form.controls['secondName'].setValidators([Validators.required, Validators.maxLength(30)]); 
     }else{
       this.form.controls['username'].clearValidators();     
+      this.form.controls['firstName'].clearValidators();   
+      this.form.controls['secondName'].clearValidators();   
       
     }
     this.form.controls['username'].updateValueAndValidity(); 
+    this.form.controls['firstName'].updateValueAndValidity(); 
+    this.form.controls['secondName'].updateValueAndValidity(); 
   }
 
   login(){
@@ -61,13 +69,14 @@ export class Login2Component implements OnInit {
       password : this.form.value.password,
       answered : 0,
       correct : 0,
-      firstName : '',
-      secondName : '',
-      level : 1,
+      firstName : this.form.value.firstName,
+      secondName : this.form.value.secondName,
+      level : "Beginner",
       sectionStage : 1,
       section : 'Tutorial',
       stage : 1,
       successPercent : 0,
+      imageURL : 'rectangle.png'
     }
 
     //login after user creates an account

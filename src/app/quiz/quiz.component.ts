@@ -215,23 +215,26 @@ export class QuizComponent implements OnInit {
   updateUser(){
     if(this.user.stage < this.highestStageNumber){
       this.appServices.updateUserStage(this.user.id,this.highestStageNumber).subscribe( data => {
-        //update User section stage
-        //update User section
+        this.appServices.getQuestionByID(this.currentStageNumber).subscribe( data => {
+          this.currentQuestion = data;
+          this.appServices.updateUserSection(this.user.id,this.currentQuestion.stageType).subscribe( data => {
+          this.appServices.updateUserSectionStage(this.user.id,this.currentQuestion.stageNumber).subscribe( data => {
 
-        let loginInfo = {
-          email : this.user.email,
-          password : this.user.password
-        }
-    
-        this.appServices.login(loginInfo).subscribe( userData => {
-          localStorage.setItem('user', JSON.stringify(userData));
-    
-          this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
-          this.getUserByStageTypeNumber();
-        })
-
+            let loginInfo = {
+              email : this.user.email,
+              password : this.user.password
+            }
         
+            this.appServices.login(loginInfo).subscribe( userData => {
+              localStorage.setItem('user', JSON.stringify(userData));
+        
+              this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+              this.getUserByStageTypeNumber();
+            })
+          })
+        })
       })
+    })
     }else{
       let loginInfo = {
         email : this.user.email,

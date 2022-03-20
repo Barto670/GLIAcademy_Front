@@ -23,7 +23,7 @@
                     <div style="margin-top:6vh">
                         <h2 style="color: #E79215;">{{user.level}} <mat-icon *ngIf="user.level == 'Beginner'">star_border</mat-icon><mat-icon *ngIf="user.level == 'Intermediate'">star_half</mat-icon><mat-icon *ngIf="user.level == 'Expert'">star</mat-icon></h2>
                         <h2 style="color:white">Current Section : {{user.section}}</h2>
-                        <h2 style="color:white">Current Stage : {{user.stage}}/{{quizCount}}</h2>
+                        <h2 style="color:white">Current Stage : {{user.sectionStage}}/{{quizCount}}</h2>
                     </div>
                 </div>
             </div>
@@ -34,10 +34,10 @@
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3" routerLink="/quiz" style="margin-bottom: 5vh; padding:2px">
                     <mat-card class=" col-12 backgroundGlass" style="height: 39vh; text-align: -webkit-center; margin:0px; padding:0px">
                         <img style="margin-top: 10px; height: 30.5vh;" src="../../assets/icons/next2.png"/>
-                        <div *ngIf="user.section == 'Tutorial' && user.stage == 1" class="col-12 backgroundGlassInside textBox">
+                        <div *ngIf="user.stage == 1" class="col-12 backgroundGlassInside textBox">
                             Start Learning
                         </div>
-                        <div *ngIf="user.section != 'Tutorial' && user.stage != 1" class="col-12 backgroundGlassInside textBox">
+                        <div *ngIf="user.stage != 1" class="col-12 backgroundGlassInside textBox">
                             Continue Learning
                         </div>
                         
