@@ -9,6 +9,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { Login2Component } from './login2/login2.component';
 import { Home2Component } from './home2/home2.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContactUsComponent } from './contactus/contactus.component';
 
 const routes: Routes = [
   { path: 'login2', component: LoginComponent, data: { title: 'Login2' } },
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'theory', component: TheoryComponent, data: { title: 'Theory' } },
   { path: 'statistics', component: StatisticsComponent, data: { title: 'Statistics' } },
   { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
+  { path: 'contactus', component: ContactUsComponent, data: { title: 'Contact Us' } },
+
 
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },

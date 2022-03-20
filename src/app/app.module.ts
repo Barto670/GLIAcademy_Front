@@ -24,6 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'; 
 import { chat } from './global/navbar/chat/chat.component'
+import { AboutComponent } from './about/about.component';
+import { ContactUsComponent } from './contactus/contactus.component';
 
 @NgModule({
 imports: [
@@ -53,6 +55,9 @@ declarations: [
     ProfileComponent,    
     popup,
     chat,
+    AboutComponent,
+    ContactUsComponent,
+    
 ],
 providers: [AppServices ,DatePipe,NavbarComponent],
 bootstrap: [AppComponent]
