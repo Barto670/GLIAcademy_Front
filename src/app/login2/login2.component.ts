@@ -64,7 +64,8 @@ export class Login2Component implements OnInit {
       firstName : '',
       secondName : '',
       level : 1,
-      section : 'Basics',
+      sectionStage : 1,
+      section : 'Tutorial',
       stage : 1,
       successPercent : 0,
     }

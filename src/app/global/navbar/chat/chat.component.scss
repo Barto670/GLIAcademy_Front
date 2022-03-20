@@ -165,11 +165,16 @@ table td.mat-cell:last-of-type, table td.mat-footer-cell:last-of-type {
 }
 
 
+
+
+
+
 .messageButton:not(:disabled):hover {
   opacity: 0.5 !important;
   border-radius: 5px;
   color: #fff;
 }
+
 .messageButton:disabled {
   background: #d3811650  !important;
   color: #fff;
@@ -181,6 +186,7 @@ table td.mat-cell:last-of-type, table td.mat-footer-cell:last-of-type {
   opacity: 0.5 !important;
   border-radius: 5px;
 }
+
 .messageButton {
   background: white  !important;
   color: black;
@@ -194,18 +200,15 @@ table td.mat-cell:last-of-type, table td.mat-footer-cell:last-of-type {
 
 
 
-/* width */
 ::-webkit-scrollbar {
   width: 20px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #d38116;
   border-radius: 10px;

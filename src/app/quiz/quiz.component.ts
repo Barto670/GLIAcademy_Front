@@ -213,9 +213,10 @@ export class QuizComponent implements OnInit {
   }
 
   updateUser(){
-    if(this.user.stage <this.highestStageNumber){
+    if(this.user.stage < this.highestStageNumber){
       this.appServices.updateUserStage(this.user.id,this.highestStageNumber).subscribe( data => {
-        
+        //update User section stage
+        //update User section
 
         let loginInfo = {
           email : this.user.email,

@@ -34,7 +34,10 @@
                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3" routerLink="/quiz" style="margin-bottom: 5vh; padding:2px">
                     <mat-card class=" col-12 backgroundGlass" style="height: 39vh; text-align: -webkit-center; margin:0px; padding:0px">
                         <img style="margin-top: 10px; height: 30.5vh;" src="../../assets/icons/next2.png"/>
-                        <div class="col-12 backgroundGlassInside textBox">
+                        <div *ngIf="user.section == 'Tutorial' && user.stage == 1" class="col-12 backgroundGlassInside textBox">
+                            Start Learning
+                        </div>
+                        <div *ngIf="user.section != 'Tutorial' && user.stage != 1" class="col-12 backgroundGlassInside textBox">
                             Continue Learning
                         </div>
                         
