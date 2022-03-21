@@ -27,11 +27,13 @@ a{
     color: white;
     font-size: 20px;
     transition: 0.32s;
-    border-radius: 10%;
+    border-radius: 15px;
+    transition: 0.32s;
 }
 
 a:hover{
-    background-color: #9e9e9e33;
+    background-color: #cfcfcf33;
+    font-size: 20px;
 }
 
 mat-icon{
@@ -163,4 +165,18 @@ mat-icon:hover{
 
 .mat-badge-medium.mat-badge-above .mat-badge-content {
   top: -1vh;
+}
+
+
+
+.smallIconNav{
+  color: #e9e9e9;
+  transition: 0.32s;
+  transform: scale(1);
+}
+
+
+.smallIconNav:hover{
+  color: #ffffff;
+  transform: scale(1.2);
 }

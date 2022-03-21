@@ -3,7 +3,7 @@
 	<nav style="width: 2%;">
 
 	</nav>
-	<img src="../../../assets/images/transparent.png" alt="GLI Academy" style="display: inline; position: relative; height: 4.5vh;">
+	<img routerLink="/home" src="../../../assets/images/transparent.png" alt="GLI Academy" style="display: inline; position: relative; height: 4.5vh; cursor: pointer;">
 
 	<nav style="width: 98%;">
 		<a mat-button routerLink="/home" style="margin-left: 100px; ">Home</a>
@@ -15,9 +15,9 @@
 
 	
 
-	<mat-icon routerLink="/profile" style="font-size: 30px;">account_box</mat-icon>
+	<mat-icon class="smallIconNav" routerLink="/profile" style="font-size: 30px;">account_box</mat-icon>
 	
-	<mat-icon routerLink="/login" style="font-size: 30px; margin-left: 30px;margin-right: 50px;">logout</mat-icon>
+	<mat-icon class="smallIconNav" routerLink="/login" style="font-size: 30px; margin-left: 30px;margin-right: 50px;">logout</mat-icon>
 
 
 	<div *ngIf="!chat" class="chatDiv" attr.value="{{appServices.messageNotification}}" >
