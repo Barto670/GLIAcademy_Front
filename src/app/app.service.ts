@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject, Subject } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, BehaviorSubject, Subject, interval } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 // import { ToastrService } from 'ngx-toastr';
 
@@ -18,11 +17,20 @@ export class AppServices implements OnInit {
 
   public serverUrl =   'http://localhost:8082'
 
+  public lastMessageViewed : number = 0;
+  public latestMessage : number = 0;
+  public messageNotification : number = 0;
+
   constructor(private http: HttpClient, private toastr: ToastrService) {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+
+  }
+
+  
 
 
   showSuccess(message: string) {
@@ -152,6 +160,12 @@ export class AppServices implements OnInit {
   addChat(payload:any){
     return this.http.post<any>(this.serverUrl + '/addChat', payload);
   }
+
+  getChatCount(): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/getChatCount/');
+  }
+
+
 
 
 }

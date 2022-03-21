@@ -1,7 +1,6 @@
 <mat-toolbar style="background-color: #3a3a3ad9; padding-left: 0px !important;position: fixed;z-index: 1; height: 5vh;box-shadow: 0px 10px 15px 10px rgb(0 0 0 / 15%);" class="mat-elevation-z2">
-	<!-- <mat-icon style="margin-left: 15px;" routerLink="/home">home</mat-icon> -->
+	
 	<nav style="width: 2%;">
-		<!-- #3a3a3ad9; -->
 
 	</nav>
 	<img src="../../../assets/images/transparent.png" alt="GLI Academy" style="display: inline; position: relative; height: 4.5vh;">
@@ -21,7 +20,7 @@
 	<mat-icon routerLink="/login" style="font-size: 30px; margin-left: 30px;margin-right: 50px;">logout</mat-icon>
 
 
-	<div *ngIf="!chat" class="chatDiv" attr.value="{{newMessages}}" >
+	<div *ngIf="!chat" class="chatDiv" attr.value="{{appServices.messageNotification}}" >
         
 		<img class="chatIcon"  (click)="chatPopup()"  src="../../../assets/icons/chat.png" > 
   

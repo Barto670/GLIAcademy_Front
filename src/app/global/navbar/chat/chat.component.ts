@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { interval } from 'rxjs/internal/observable/interval';
 import { AppServices } from 'src/app/app.service';
 import { NavbarComponent } from '../navbar.component';
 
@@ -18,6 +19,7 @@ import { NavbarComponent } from '../navbar.component';
 export class chat implements OnInit {
 
   user : any;
+  messageLength : any;
   
 
   matTableDataSource = new MatTableDataSource; 
@@ -44,6 +46,15 @@ export class chat implements OnInit {
     this.matTableDataSource.data = []; 
 
     this.getChats();
+
+    interval(5000).subscribe((func => {
+      this.getChats();
+      if(this.messageLength != this.matTableDataSource.data.length){
+        this.updateTableScroll();
+      }
+      
+    }))
+
   }
 
   ngAfterViewInit() { 
@@ -52,11 +63,6 @@ export class chat implements OnInit {
     this.matTableDataSource.sort = this.matTableSort.toArray()[0];  
  
   } 
-
-
-  submit(){
-
-  }
 
   close(){
     this.navbar.chat = false
@@ -82,8 +88,20 @@ export class chat implements OnInit {
   getChats(){
     this.appServices.getAllChats().subscribe( data => {
       this.matTableDataSource = data;
+      console.log(data)
     })
   }
+
+  updateTableScroll(){
+    console.log("SCROLLUPDATE");
+    var objDiv = document.getElementById("scroll")!;
+    console.log(objDiv)
+
+    this.messageLength = this.matTableDataSource.data.length;
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+  }
+
   
 
 }
