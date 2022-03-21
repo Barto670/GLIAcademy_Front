@@ -13,14 +13,23 @@ export class NavbarComponent implements OnInit {
 
   chat = false;
 
+  user : any;
+
   
 
 
-  constructor(public appServices: AppServices) { }
+  constructor(public appServices: AppServices,private router: Router) { }
 
 
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('user') == null){
+      this.router.navigate(["/login"]);
+    }
+
+    this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+
     this.updateLatestMessage();
     interval(2000).subscribe((func => {
       this.updateMessage();
@@ -46,6 +55,11 @@ export class NavbarComponent implements OnInit {
   chatPopup(){
     this.chat = true;
     this.updateLatestMessage();
+  }
+
+  logout(){
+    localStorage.removeItem('user');
+    this.router.navigate(["/login"]);
   }
 
 }

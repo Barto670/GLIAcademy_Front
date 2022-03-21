@@ -40,6 +40,10 @@ export class chat implements OnInit {
   constructor(private router: Router , private appServices: AppServices, private navbar: NavbarComponent) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('user') == null){
+      this.router.navigate(["/login"]);
+    }
+
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
 
 
@@ -76,7 +80,8 @@ export class chat implements OnInit {
       senderID : this.user.id,
       senderName : this.user.firstName,
       senderSurname : this.user.secondName,
-      senderImage : this.user.imageURL
+      senderImage : this.user.imageURL,
+      senderUsername : this.user.username
     }
 
     this.appServices.addChat(tempMessage).subscribe( data => {

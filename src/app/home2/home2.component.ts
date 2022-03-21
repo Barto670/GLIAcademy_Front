@@ -16,6 +16,10 @@ export class Home2Component implements OnInit {
   constructor(private router: Router, private appServices: AppServices) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('user') == null){
+      this.router.navigate(["/login"]);
+    }
+
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
 
     this.getQuizTypeCount();
@@ -26,13 +30,5 @@ export class Home2Component implements OnInit {
       this.quizCount = data;
     })
   }
-
-  // goTo(page:String){
-  //   switch(page){
-  //     case 'theory':{
-  //       routing.navigate(['/'])
-  //     }
-  //   }
-  // }
 
 }

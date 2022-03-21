@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppServices } from '../app.service';
 
 @Component({
@@ -39,10 +40,15 @@ export class QuizComponent implements OnInit {
   allowBack = false;
   allowForwards = false;
 
-  constructor( private appServices: AppServices) { }
+  constructor( private appServices: AppServices,  private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('user') == null){
+      this.router.navigate(["/login"]);
+    }
+
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+
     this.currentStageNumber= this.user.stage;
 
     // this.getQuestions();

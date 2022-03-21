@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 // import * as fs from 'fs';
 
 @Component({
@@ -28,9 +29,13 @@ export class ProfileComponent implements OnInit {
     username: new FormControl('', [Validators.required]),
   });
   
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('user') == null){
+      this.router.navigate(["/login"]);
+    }
+
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
 
     this.form.patchValue({
