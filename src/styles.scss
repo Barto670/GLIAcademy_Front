@@ -141,6 +141,12 @@
     align-items: center;
     justify-content: left;
   }
+
+  .gridAllignRight{
+    display: grid;
+    align-items: center;
+    justify-content: right;
+  }
   
 
   .tooltip {

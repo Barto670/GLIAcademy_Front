@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppServices } from '../app.service';
 // import * as fs from 'fs';
 
 @Component({
@@ -29,7 +30,7 @@ export class ProfileComponent implements OnInit {
     username: new FormControl('', [Validators.required]),
   });
   
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router, private appServices: AppServices) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('user') == null){
@@ -57,6 +58,23 @@ export class ProfileComponent implements OnInit {
 
   updateImage(){
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+  }
+
+  updateProfile(){
+    console.log(this.form)
+
+    this.appServices.updateUser(this.form.value,this.user.id).subscribe( data => {
+
+
+      this.user.firstName = this.form.value.firstName;
+      this.user.secondName = this.form.value.secondName;
+      this.user.username = this.form.value.username;
+
+      localStorage.setItem('user', JSON.stringify(this.user));
+
+      this.appServices.showSuccess("Succesfully updated profile")
+
+    })
   }
   
   
