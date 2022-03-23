@@ -10,3 +10,88 @@
     margin-top: 5vh;
     height: calc(100vh- 5vh);
 }
+
+// #editor *{ font-family : monospace !important;font-size: 16px !important;direction:ltr !important;text-align:left !important;}
+
+// #editor{
+//     font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", monospace !important;
+//     font-size: 12px !important;
+//     font-weight: 400 !important;
+//     letter-spacing: 0 !important;
+//     color: red;
+//     }
+
+div.code-editor { max-height: 70vh; }
+
+div.label-box {
+    border-top-left-radius: .5rem!important;
+    border-top-right-radius: .5rem!important;
+}
+
+.form-control { border-radius: 0 !important; }
+
+.form-control:disabled { background-color: #ffffff !important; }
+
+.output {
+    border-bottom-left-radius: .5rem!important;
+    border-bottom-right-radius: .5rem!important;
+}
+
+.btn-beautify {
+    color: #ffffff;
+    background-color: #e83e8c;
+}
+
+select.languages-select {
+    cursor: pointer;
+}
+
+select.languages-select > option {
+    display: block;
+    background: ghostwhite;
+}
+
+select.languages-select:focus > option:checked { 
+    font-weight: bold;
+}
+
+
+.code-editor{
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", monospace !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    }
+
+    .ace_line {
+        pointer-events: auto;
+    }
+    .ace_line:hover {
+        background-color: #a0a4;
+    }
+
+    ::ng-deep {
+        .ace_line,
+        .ace_line span {
+        font-family: monospace !important;
+        }
+        }
+
+
+    ::ng-deep h1, h2,h3 ,h4 ,h5 ,h6 ,div{
+        color: black;
+    }
+
+    :ng-deep button{
+        color: black;
+        background-color: grey;
+    }
+
+    .bar{
+        background-image: url("../../assets/images/bar2.png");
+        background-size:cover;
+    }
+
+    ::ng-deep .title , .buttons{
+        color: white !important;
+    }

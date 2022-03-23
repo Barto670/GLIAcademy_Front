@@ -119,3 +119,7 @@ input:disabled, optgroup:disabled, select:disabled, textarea:disabled {
    -moz-user-select: none; /* Firefox */
    -ms-user-select: none; /* Internet Explorer/Edge */
 }
+
+div,h1,h2,h3,h4,h5,h6{
+  color: white;
+}
