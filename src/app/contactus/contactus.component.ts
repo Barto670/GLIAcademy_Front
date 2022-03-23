@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import * as ace from 'ace-builds';
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-github';
-
+import 'ace-builds/src-noconflict/ext-language_tools';
 
 const LANG = 'ace/mode/html';
 
@@ -15,34 +15,36 @@ const LANG = 'ace/mode/html';
 }) 
 export class ContactUsComponent implements OnInit {
 
-    // @ViewChild('codeEditor') codeEditorElmRef!: ElementRef;
-    // codeEditor!: ace.Ace.Editor;
+  @ViewChild('editor') private editor!: ElementRef<HTMLElement>;
+  aceEditor!: ace.Ace.Editor;
 
     constructor() { }
 
   ngOnInit(): void {
+    ace.require('ace/ext/language_tools');
   }
 
-  @ViewChild('editor') private editor!: ElementRef<HTMLElement>;
+  
 
   ngAfterViewInit(): void {
+    this.aceEditor = ace.edit(this.editor.nativeElement);
      ace.config.set("fontSize", "14px");
      ace.config.set(
         'basePath',
         "https://ace.c9.io/build/src-noconflict/"
      );
 
-     const aceEditor = ace.edit(this.editor.nativeElement);
-     aceEditor.setTheme("ace/theme/monokai");
-     aceEditor.session.setMode("ace/mode/html");
-     aceEditor.on("change", () => {
-        console.log(aceEditor.getValue());
+     
+     this.aceEditor.setTheme("ace/theme/monokai");
+     this.aceEditor.session.setMode("ace/mode/html");
+     this.aceEditor.on("change", () => {
+        console.log(this.aceEditor.getValue());
      });
 
 
-     aceEditor.getSession().setMode(LANG);
-     aceEditor.setShowFoldWidgets(true); // for the scope fold feature
+     this.aceEditor.getSession().setMode(LANG);
+     this.aceEditor.setShowFoldWidgets(true); // for the scope fold feature
 
-     aceEditor.renderer.attachToShadowRoot()
+     this.aceEditor.renderer.attachToShadowRoot()
   }
 }
