@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ElementRef, Input, ViewChild, AfterContentInit} from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppServices } from '../app.service';
+
+import * as ace from 'ace-builds';
+import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/theme-github';
+import 'ace-builds/src-noconflict/ext-language_tools';
+import 'ace-builds/src-noconflict/ext-beautify';
+
 
 @Component({
   selector: 'app-quiz',
@@ -9,6 +16,18 @@ import { AppServices } from '../app.service';
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
+
+  //programming
+  @ViewChild('editor', {static: false}) editor!: ElementRef<HTMLElement>;
+  @Input() content!: string;
+  aceEditor!: ace.Ace.Editor;
+  editorBeautify : any;
+
+
+  htmltest :any;
+  //
+
+  constructor( private appServices: AppServices,  private router: Router) { }
 
   //user data
   user :any;
@@ -40,12 +59,22 @@ export class QuizComponent implements OnInit {
   allowBack = false;
   allowForwards = false;
 
-  constructor( private appServices: AppServices,  private router: Router) { }
+  loading :boolean = false;
+
+
+  ngAfterViewInit(): void {
+
+    this.setProgrammingToDefault();
+     
+  }
 
   ngOnInit(): void {
+
     if(localStorage.getItem('user') == null){
       this.router.navigate(["/login"]);
     }
+
+    this.loading = true;
 
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
 
@@ -54,10 +83,9 @@ export class QuizComponent implements OnInit {
     // this.getQuestions();
     this.updateUser();
 
-    
-    
-
   }
+
+  
 
   reloadBottomArrows(){
     if(this.currentQuestion.id < this.user.stage){
@@ -157,6 +185,42 @@ export class QuizComponent implements OnInit {
 
   }
 
+  setProgrammingToDefault(){
+    ace.require('ace/ext/language_tools');
+    this.editorBeautify = ace.require('ace/ext/beautify');
+
+    setTimeout(() => 
+    {
+      const editorOptions = this.getEditorOptions(); //get options
+
+      this.aceEditor = ace.edit(this.editor.nativeElement,editorOptions); //initialise the editor
+      
+       ace.config.set(
+          'basePath',
+          "https://ace.c9.io/build/src-noconflict/"
+       );
+  
+       
+       this.aceEditor.setTheme("ace/theme/monokai"); //set theme
+       this.aceEditor.session.setMode("ace/mode/html");  //set language
+  
+       //enable prints to console
+       this.aceEditor.on("change", () => {
+          console.log(this.aceEditor.getValue());
+       });
+  
+       this.setCodeTutorial();
+  
+       this.aceEditor.getSession().setMode("ace/mode/html"); //set language
+       this.aceEditor.setShowFoldWidgets(true); // for the scope fold feature
+  
+       this.aceEditor.renderer.attachToShadowRoot()
+       this.intialUpdate();
+       this.loading = false;
+    },
+    300);
+  }
+
   setAllAnswersToDefaultSmall(){
     //all buttons off
     let elements:any = <HTMLInputElement> document.getElementById("1");
@@ -212,6 +276,10 @@ export class QuizComponent implements OnInit {
           this.setAllAnswersToDefault();
         },
         100);
+      }
+      if(this.currentQuestion.type == "Programming"){
+        this.loading = true;
+        this.setProgrammingToDefault()
       }
       this.reloadBottomArrows();
       this.getQuizTypeCount();
@@ -287,5 +355,121 @@ export class QuizComponent implements OnInit {
 
     
   }
+
+
+
+
+  ///programming
+
+  getEditorOptions(): Partial<ace.Ace.EditorOptions> & { enableBasicAutocompletion?: boolean; } {
+    const basicEditorOptions: Partial<ace.Ace.EditorOptions> = {
+        highlightActiveLine: true,
+        minLines: 14,
+        maxLines: Infinity,
+        
+    };
+
+    const extraEditorOptions = {
+      enableBasicAutocompletion: true,
+      showGutter: true,     // Enabling line numbers for the editor
+      useWrapMode: true,
+      showPrintMargin: false, // Disabling print margin line from the editor
+      highlightGutterLine: false,
+      highlightActiveLine: false,
+      fadeFoldWidgets: true,
+      showLineNumbers: true,
+      howGutter: true,
+      fontSize: 12,
+      wrap: false,
+
+    };
+    const margedOptions = Object.assign(basicEditorOptions, extraEditorOptions);
+    return margedOptions;
+}
+
+setCodeTutorial(){
+  this.aceEditor.session.insert({row: 1, column: 0}, "<h1>Incorrect</h1>");
+}
+
+setCodeTypography(){
+  this.aceEditor.session.insert({row: 1, column: 0}, "<h1>Cstomr Nam:</h1>\n");
+  this.aceEditor.session.insert({row: 1, column: 0}, "<h3>John Hopkins</h3>");
+}
+
+refresh(){
+  this.setContent("");
+  if(this.currentQuestion.question == "tutorial"){
+    this.setCodeTutorial();
+  }
+
+  if(this.currentQuestion.question == "typo"){
+    this.setCodeTypography();
+  }
+  
+}
+
+beautifyContent() {
+  if (this.aceEditor && this.editorBeautify) {
+     const session = this.aceEditor.getSession();
+     this.editorBeautify.beautify(session);
+  }
+}
+
+
+getCode() {
+  const code = this.aceEditor.getValue();
+  console.log(code);
+}
+
+setContent(content: string): void {
+  if (this.aceEditor) {
+      this.aceEditor.setValue(content);
+  }
+}
+
+
+intialUpdate(){
+  console.log(this.getContent());
+  this.htmltest = this.aceEditor.getValue();
+  console.log(this.htmltest)
+  
+}
+
+consoleCode() {
+  this.intialUpdate();
+
+  var correctCustmomerName;
+
+  if(this.currentQuestion.question == "tutorial"){
+    correctCustmomerName = "<h1>Correct</h1>"
+  }
+
+  if(this.currentQuestion.question == "typo"){
+    correctCustmomerName = "<h1>Customer Name:</h1>\n<h3>John Hopkins</h3>"
+  }
+  console.log(correctCustmomerName)
+  if(this.htmltest.includes(correctCustmomerName)){
+    console.log("correct")
+    this.questionCheckedAnswer = true;
+    this.appServices.showSuccess("Correct Answer")
+  }else{
+    this.appServices.showError("Incorrect Answer")
+  }
+}
+
+getContent() {
+  if (this.aceEditor) {
+      const code = this.aceEditor.getValue();
+      return code;
+  }
+  return
+}
+
+OnContentChange(callback: (content: string, delta: ace.Ace.Delta) => void): void {
+  this.aceEditor.on('change', (delta) => {
+      const content = this.aceEditor.getValue();
+      callback(content, delta);
+  });
+}
 
 }

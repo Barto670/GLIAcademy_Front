@@ -78,20 +78,7 @@ select.languages-select:focus > option:checked {
         }
 
 
-    ::ng-deep h1, h2,h3 ,h4 ,h5 ,h6 ,div{
-        color: black;
-    }
-
-    :ng-deep button{
-        color: black;
-        background-color: grey;
-    }
-
     .bar{
         background-image: url("../../assets/images/bar2.png");
         background-size:cover;
-    }
-
-    ::ng-deep .title , .buttons{
-        color: white !important;
     }

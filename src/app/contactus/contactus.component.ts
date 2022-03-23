@@ -7,7 +7,6 @@ import 'ace-builds/src-noconflict/theme-github';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/src-noconflict/ext-beautify';
 
-const LANG = 'ace/mode/html';
 @Component({
   selector: 'app-contactus',
   templateUrl: './contactus.component.html',
@@ -38,8 +37,6 @@ export class ContactUsComponent implements OnInit {
 
     this.aceEditor = ace.edit(this.editor.nativeElement,editorOptions); //initialise the editor
     
-    //add config
-    //  ace.config.set("fontSize", "14px");
      ace.config.set(
         'basePath',
         "https://ace.c9.io/build/src-noconflict/"
@@ -54,16 +51,9 @@ export class ContactUsComponent implements OnInit {
         console.log(this.aceEditor.getValue());
      });
 
-    //  this.setContent(this.content || INIT_CONTENT);
-
-    // this.aceEditor.setValue("hello",-1);
-    // this.aceEditor.setValue("hello222",1);
-
-    
-
      this.setCodeTutorial();
 
-     this.aceEditor.getSession().setMode(LANG); //set language
+     this.aceEditor.getSession().setMode("ace/mode/html"); //set language
      this.aceEditor.setShowFoldWidgets(true); // for the scope fold feature
 
      this.aceEditor.renderer.attachToShadowRoot()
@@ -80,13 +70,10 @@ export class ContactUsComponent implements OnInit {
     };
 
     const extraEditorOptions = {
-        enableBasicAutocompletion: true,
-        // mode: 'groovy',
-      //  theme: 'textmate',
-       showGutter: true,     // Enabling line numbers for the editor
-       useWrapMode: true,
-       showPrintMargin: false, // Disabling print margin line from the editor
-      // showInvisibles: true,
+      enableBasicAutocompletion: true,
+      showGutter: true,     // Enabling line numbers for the editor
+      useWrapMode: true,
+      showPrintMargin: false, // Disabling print margin line from the editor
       highlightGutterLine: false,
       highlightActiveLine: false,
       fadeFoldWidgets: true,
