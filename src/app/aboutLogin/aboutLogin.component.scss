@@ -1,0 +1,272 @@
+.container{
+    margin : 0px;
+    padding: 0px;
+    left:0;
+    top:0;
+    position: fixed;
+    overflow-y: hidden !important;
+    background-color: rgb(50, 50, 50);
+    // height: 92.5vh !important;
+    margin-top: 5vh;
+    height: calc(100vh- 5vh);
+}
+
+div,h1,h2,h3,h4,h5,h6{
+    color: white;
+}
+
+
+.contact{
+    background-image: url("../../assets/images/contact2.png");
+    background-size:cover;
+    transition: 0.32s;
+    transform: scale(0.90);
+}
+
+.contact:hover{
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+
+.contact::after{
+    content: "☎ 085-111-1111  | 🗺 Limerick, Ireland |‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎ ✉ GLIAcademy@gmail.com";
+    position: absolute;
+    display: flex;
+    transition: 0.32s;
+    color: rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    font-size: 5vh;
+}
+
+.contact:hover.contact::after{
+    background-color: white;
+    position: absolute;
+    transition: 0.32s;
+    color: #323232;
+    opacity: 1;
+    border-radius: 20px;
+}
+
+
+.world{
+    background-image: url("../../assets/images/world.png");
+    background-size:cover;
+    transition: 0.32s;
+    transform: scale(0.90);
+}
+
+.world:hover{
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.world::after{
+    content: "Globalisation Localisation Internationalistion Academy";
+    position: absolute;
+    display: flex;
+    transition: 0.32s;
+    color: rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    font-size: 5vh;
+}
+
+.world:hover.world::after{
+    background-color: white;
+    position: absolute;
+    transition: 0.32s;
+    color: #323232;
+    opacity: 1;
+    border-radius: 20px;
+}
+
+
+
+
+.text1{
+    transition: 0.32s;
+    transform: scale(0.90);
+    color: rgb(255, 255, 255);
+}
+
+.text1:hover{
+    color: rgba(240, 248, 255, 0);
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.text1::after{
+    content: "GLIAcademy is an educational platform that allows users to learn about the best globalisation, localisation and internationalisation practices and concepts";
+    position: absolute;
+    display: flex;
+    transition: 0.32s;
+    color: rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5vh;
+}
+
+.text1:hover.text1::after{
+    position: absolute;
+    transition: 0.32s;
+    color: #323232;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+
+
+.text2{
+    transition: 0.32s;
+    transform: scale(0.90);
+    color: rgb(255, 255, 255);
+}
+
+.text2:hover{
+    color: rgba(240, 248, 255, 0);
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.text2::after{
+    content: "GLIAcademy allows for interaction between community members through a global chat room, which can help users expand their knowledge about various topics by learning from others ";
+    position: absolute;
+    display: flex;
+    transition: 0.32s;
+    color: rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5vh;
+}
+
+.text2:hover.text2::after{
+    position: absolute;
+    transition: 0.32s;
+    color: #323232;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+.text3{
+    transition: 0.32s;
+    transform: scale(0.90);
+    color: rgb(255, 255, 255);
+}
+
+.text3:hover{
+    color: rgba(240, 248, 255, 0);
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.text3::after{
+    content: "The platform offers a variety of learning techniques and allows for learning through theory, doing quizzes and practicing programming questions";
+    position: absolute;
+    display: flex;
+    transition: 0.32s;
+    color: rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5vh;
+}
+
+.text3:hover.text3::after{
+    position: absolute;
+    transition: 0.32s;
+    color: #323232;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+.text4{
+    transition: 0.32s;
+    transform: scale(0.90);
+    color: rgb(255, 255, 255);
+}
+
+.text4:hover{
+    color: rgba(240, 248, 255, 0);
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.text4::after{
+    content: "GLIAcademy is designed for users with various goals and experiences. It is also targeted towards all ages, with the use of imagery and gradual learning curve";
+    position: absolute;
+    display: flex;
+    transition: 0.32s;
+    color: rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5vh;
+}
+
+.text4:hover.text4::after{
+    position: absolute;
+    transition: 0.32s;
+    color: #323232;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+.text5{
+    transition: 0.32s;
+    transform: scale(0.90);
+    color: rgb(255, 255, 255);
+}
+
+.text5:hover{
+    color: rgba(240, 248, 255, 0);
+    transform: scale(0.98);
+    border-radius: 20px;
+}
+
+.text5::after{
+    content: "After creating an account, the user is free to customise their profile and explore all the content offered to them through the website";
+    position: absolute;
+    display: flex;
+    transition: 0.32s;
+    color: rgba(255, 255, 255, 0);
+    justify-content: center;
+    align-items: center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    font-size: 2.5vh;
+}
+
+.text5:hover.text5::after{
+    position: absolute;
+    transition: 0.32s;
+    color: #323232;
+    background-color: white;
+    border-radius: 20px;
+}
