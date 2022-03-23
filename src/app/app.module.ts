@@ -25,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'; 
 import { chat } from './global/navbar/chat/chat.component'
 import { AboutComponent } from './about/about.component';
-import { ContactUsComponent } from './contactus/contactus.component';
+// import { ContactUsComponent } from './contactus/contactus.component';
 
 @NgModule({
 imports: [
@@ -57,7 +57,7 @@ declarations: [
     popup,
     chat,
     AboutComponent,
-    ContactUsComponent,
+    // ContactUsComponent,
     
 ],
 providers: [AppServices ,DatePipe,NavbarComponent],
