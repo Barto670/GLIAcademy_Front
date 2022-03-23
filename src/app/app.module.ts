@@ -40,6 +40,7 @@ imports: [
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     MatButtonModule,
+    
 ],
 exports: [RouterModule],
 declarations: [
