@@ -175,7 +175,7 @@
                 </div>
 
                 <div class="gridCenter" style="margin-top:8vh;">
-                    <button *ngIf="!questionCheckedAnswer" id="checkAnswer" [disabled]="questionClickedDisabled" (click)="turnOnNextButton()"  mat-raised-button><h1 class="buttonFormat gridCenter">Check Answer</h1></button>
+                    <button *ngIf="!questionCheckedAnswer" id="checkAnswer" [disabled]="questionClickedDisabled" (click)="turnOnNextButton()"  mat-raised-button><h1 class="buttonFormat gridCenter">Next ➤</h1></button>
                     <button *ngIf="questionCheckedAnswer && currentQuestion.stageNumber != quizCount" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Next ➤</h1></button>
                     <button *ngIf="questionCheckedAnswer && currentQuestion.stageNumber == quizCount" id="nextButton" (click)="onNextButtonClicked()" mat-raised-button><h1 class="buttonFormat gridCenter">Finish Section ➤</h1></button>
                 </div>
