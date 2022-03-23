@@ -7,6 +7,74 @@
     background-size: cover;
 }
 
+.container2{
+  margin : 0px;
+  padding: 0px;
+  left:0;
+  top:0;
+  position: fixed;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  background-color: #ff9800;
+  height: 100vh;
+  width: 10vw;
+  border-top-right-radius: 80%;
+  border-bottom-right-radius: 80%;
+  transition: border-top-right-radius 0.4s cubic-bezier(0, 0.26, 0.56, 0.89), border-bottom-right-radius 0.4s cubic-bezier(0, 0.26, 0.56, 0.89), width 0.4s cubic-bezier(0, 0.26, 0.56, 0.89), color 1s , font-size 0.0s;
+  color: #fdedd6;
+  text-align: center;
+  font-size: 50px;
+}
+
+.container2:hover{
+  margin : 0px;
+  padding: 0px;
+  left:0;
+  top:0;
+  position: fixed;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  background-color: #ff9800;
+  height: 100vh;
+  width: 12vw;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  color: #ff9800;
+  font-size: 0px;
+  cursor: pointer;
+
+  
+}
+
+.container3{
+  margin : 0px;
+  padding: 0px;
+  left:0;
+  top:0;
+  position: absolute;
+  display: fixed;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  background-color: #f09000;
+  height: 100vh;
+  width: 12vw;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.32s;
+}
+
+.container2:hover{
+    
+    .container3{
+      opacity: 1;
+    }
+}
+
+
 input{
   color: #FFF;
 }
@@ -138,4 +206,13 @@ mat-button-toggle:hover {
 
 div,h1,h2,h3,h4,h5,h6{
   color: white;
+}
+
+
+.sideBarText{
+  margin-top: 5vh; 
+  background-color: #323232;
+  color: #ffffff; 
+  padding: 5px; 
+  font-weight: 400
 }

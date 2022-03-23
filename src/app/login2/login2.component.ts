@@ -88,4 +88,8 @@ export class Login2Component implements OnInit {
     })
   }
 
+  aboutus(){
+    this.router.navigate(['/aboutus'])
+  }
+
 }

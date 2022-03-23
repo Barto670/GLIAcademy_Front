@@ -9,6 +9,19 @@
     // height: 92.5vh !important;
     margin-top: 5vh;
     height: calc(100vh- 5vh);
+    
+}
+
+.container2{
+    margin : 0px;
+    padding: 0px;
+    left:0;
+    top:0;
+    position: fixed;
+    overflow-y: hidden !important;
+    background-color: rgb(50, 50, 50);
+    height: 5vh;
+    width: 100vw;
 }
 
 div,h1,h2,h3,h4,h5,h6{
@@ -107,7 +120,7 @@ div,h1,h2,h3,h4,h5,h6{
     content: "GLIAcademy is an educational platform that allows users to learn about the best globalisation, localisation and internationalisation practices and concepts";
     position: absolute;
     display: flex;
-    transition: 0.32s;
+    transition: 0.32s ;
     color: rgba(255, 255, 255, 0);
     justify-content: center;
     align-items: center;
@@ -269,4 +282,15 @@ div,h1,h2,h3,h4,h5,h6{
     color: #323232;
     background-color: white;
     border-radius: 20px;
+}
+
+
+.back{
+    background-color: #323232;
+    transition: 0.32s;
+}
+
+.back:hover{
+    background-color: #646464;
+    cursor: pointer;
 }

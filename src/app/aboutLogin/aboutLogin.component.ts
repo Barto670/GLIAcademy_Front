@@ -19,4 +19,8 @@ export class AboutLoginComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
   }
 
+  back(){
+    this.router.navigate(['/login'])
+  }
+
 }
