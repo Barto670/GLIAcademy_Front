@@ -208,8 +208,14 @@ export class QuizComponent implements OnInit {
        this.aceEditor.on("change", () => {
           console.log(this.aceEditor.getValue());
        });
-  
-       this.setCodeTutorial();
+
+       if(this.currentQuestion.question == "tutorial"){
+        this.setCodeTutorial();
+      }
+    
+      if(this.currentQuestion.question == "typo"){
+        this.setCodeTypography();
+      }
   
        this.aceEditor.getSession().setMode("ace/mode/html"); //set language
        this.aceEditor.setShowFoldWidgets(true); // for the scope fold feature
@@ -265,24 +271,28 @@ export class QuizComponent implements OnInit {
     this.appServices.getQuestionByID(this.currentStageNumber).subscribe( data => {
       console.log(data);
       this.currentQuestion = data;
-      this.correctAnswerNumber = data.correctAnswer;
+      if(this.currentQuestion.type != "END"){
+        this.correctAnswerNumber = data.correctAnswer;
 
-      console.log(this.currentQuestion);
-
-      //all buttons off and disable them
-      if(this.currentQuestion.type == "Quiz"){
-        setTimeout(() => 
-        {
-          this.setAllAnswersToDefault();
-        },
-        100);
-      }
-      if(this.currentQuestion.type == "Programming"){
-        this.loading = true;
-        this.setProgrammingToDefault()
+        console.log(this.currentQuestion);
+  
+        //all buttons off and disable them
+        if(this.currentQuestion.type == "Quiz"){
+          setTimeout(() => 
+          {
+            this.setAllAnswersToDefault();
+          },
+          100);
+        }
+        if(this.currentQuestion.type == "Programming"){
+          this.loading = true;
+          this.setProgrammingToDefault()
+        }
+        
       }
       this.reloadBottomArrows();
       this.getQuizTypeCount();
+      
     })
   }
 
@@ -438,17 +448,17 @@ intialUpdate(){
 consoleCode() {
   this.intialUpdate();
 
-  var correctCustmomerName;
+  var correctAnswer;
 
   if(this.currentQuestion.question == "tutorial"){
-    correctCustmomerName = "<h1>Correct</h1>"
+    correctAnswer = "<h1>Correct</h1>"
   }
 
   if(this.currentQuestion.question == "typo"){
-    correctCustmomerName = "<h1>Customer Name:</h1>\n<h3>John Hopkins</h3>"
+    correctAnswer = "<h1>Customer Name:</h1>\n<h3>John Hopkins</h3>"
   }
-  console.log(correctCustmomerName)
-  if(this.htmltest.includes(correctCustmomerName)){
+  console.log(correctAnswer)
+  if(this.htmltest.includes(correctAnswer)){
     console.log("correct")
     this.questionCheckedAnswer = true;
     this.appServices.showSuccess("Correct Answer")
