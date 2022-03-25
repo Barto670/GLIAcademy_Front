@@ -37,13 +37,9 @@ export class AppServices implements OnInit {
     this.toastr.success(message);
   }
 
-
-
   showError(message : string) {
     this.toastr.error(message);
   }
-
-
 
   showWarning(message : string) {
     this.toastr.warning(message);
@@ -52,11 +48,6 @@ export class AppServices implements OnInit {
 
   // sampleGet(): Observable<any> {
   //   return this.http.get<any>(this.serverUrl + '/sampleGet/')
-  //     .pipe(
-  //       catchError(() => {
-  //         return null;
-  //       })
-  //     );
   // }
 
   // samplePost(payload:any): Observable<any> {

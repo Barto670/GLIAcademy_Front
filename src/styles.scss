@@ -49,12 +49,16 @@
     box-shadow: 0 0 0 0 rgb(0 0 0 / 0%), 0 0 0 0 rgb(74 74 74 / 0%), 0 0 0 0 rgb(0 0 0 / 0%) !important;
 }
 
-.textLeft{
+  .textLeft{
     text-align: left !important;
   }
   
   .textCenter{
     text-align: center !important;
+  }
+
+  .textRight{
+    text-align: right !important;
   }
 
   .nowrap{

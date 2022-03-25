@@ -30,7 +30,7 @@ export class chat implements OnInit {
 
     message: new FormControl('', Validators.required), 
 
- }); 
+  }); 
 
   @ViewChildren(MatPaginator) matTableGenericPaginator!: QueryList<MatPaginator>;
 
@@ -76,7 +76,7 @@ export class chat implements OnInit {
 
     var tempMessage = {
       message: this.form.value.message,
-      messageSend : new Date(),
+      messageSent : new Date(),
       senderID : this.user.id,
       senderName : this.user.firstName,
       senderSurname : this.user.secondName,
@@ -86,6 +86,7 @@ export class chat implements OnInit {
 
     this.appServices.addChat(tempMessage).subscribe( data => {
       this.getChats();
+      this.form.reset();
     })
 
   }

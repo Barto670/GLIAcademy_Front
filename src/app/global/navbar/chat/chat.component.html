@@ -20,8 +20,9 @@
                           <img class="leftImage" width="60" height="60"src="../../assets/images/profile/{{element.senderImage}}"/> 
                         </div>
                         <div class="col-11">
-                          <h4>{{element.message}}</h4>
-                          <h6 style="color:white; font-size: 12px;">{{element.senderName}} {{element.senderSurname}} | {{element.senderUsername}}</h6>
+                          <h4 style="text-align: start;">{{element.message}}</h4>
+                          <h6 style="color:#ddd8da; font-size: 12px;">{{element.senderName}} {{element.senderSurname}} | {{element.senderUsername}}</h6>
+                          <h6 style="color:#ddd8da; font-size: 12px; margin: 0px; padding:0px;">{{element.messageSent | date: 'HH:mm:ss dd/MM/yyyy'}}</h6>
                         </div>
                       </div>
                       <div class="col-6"></div>
@@ -31,8 +32,9 @@
                       <div class="col-6 right row">
                         
                         <div class="col-11">
-                          <h4>{{element.message}}</h4>
-                          <h6 style="color:white;font-size: 12px;">{{element.senderName}} {{element.senderSurname}} | {{element.senderUsername}}</h6>
+                          <h4 style="text-align: start;">{{element.message}}</h4>
+                          <h6 style="color:#ddd8da;font-size: 12px;  margin: 0px; padding:0px;">{{element.senderName}} {{element.senderSurname}} | {{element.senderUsername}}</h6>
+                          <h6 style="color:#ddd8da; font-size: 12px; margin: 0px; padding:0px;">{{element.messageSent | date: 'HH:mm:ss dd/MM/yyyy'}}</h6>
                         </div>
                         <div class="col-1">
                           <img class="rightImage" width="60" height="60"src="../../assets/images/profile/{{element.senderImage}}"/> 
