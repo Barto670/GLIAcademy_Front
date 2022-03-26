@@ -82,6 +82,7 @@ export class QuizComponent implements OnInit {
 
     // this.getQuestions();
     this.updateUser();
+    
 
   }
 
@@ -208,7 +209,7 @@ export class QuizComponent implements OnInit {
        this.aceEditor.on("change", () => {
           console.log(this.aceEditor.getValue());
        });
-
+       this.setContent("");
        if(this.currentQuestion.question == "tutorial"){
         this.setCodeTutorial();
       }
@@ -223,9 +224,13 @@ export class QuizComponent implements OnInit {
        this.aceEditor.renderer.attachToShadowRoot()
        this.intialUpdate();
        this.loading = false;
+       
     },
     300);
   }
+
+
+  
 
   setAllAnswersToDefaultSmall(){
     //all buttons off
@@ -271,7 +276,7 @@ export class QuizComponent implements OnInit {
     this.appServices.getQuestionByID(this.currentStageNumber).subscribe( data => {
       console.log(data);
       this.currentQuestion = data;
-      if(this.currentQuestion.type != "END"){
+      // if(this.currentQuestion.type != "END"){
         this.correctAnswerNumber = data.correctAnswer;
 
         console.log(this.currentQuestion);
@@ -289,7 +294,7 @@ export class QuizComponent implements OnInit {
           this.setProgrammingToDefault()
         }
         
-      }
+      // }
       this.reloadBottomArrows();
       this.getQuizTypeCount();
       

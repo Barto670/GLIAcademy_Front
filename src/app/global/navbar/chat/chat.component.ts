@@ -51,12 +51,21 @@ export class chat implements OnInit {
 
     this.getChats();
 
+
+    
+
+    setTimeout(() => 
+    {
+      this.updateTableScroll();
+    },
+    500);
+
+    
     interval(5000).subscribe((func => {
       this.getChats();
       if(this.messageLength != this.matTableDataSource.data.length){
         this.updateTableScroll();
       }
-      
     }))
 
   }
@@ -93,7 +102,7 @@ export class chat implements OnInit {
 
   getChats(){
     this.appServices.getAllChats().subscribe( data => {
-      this.matTableDataSource = data;
+      this.matTableDataSource.data = data;
       console.log(data)
     })
   }
@@ -102,6 +111,8 @@ export class chat implements OnInit {
     console.log("SCROLLUPDATE");
     var objDiv = document.getElementById("scroll")!;
     console.log(objDiv)
+
+    console.log(this.matTableDataSource.data)
 
     this.messageLength = this.matTableDataSource.data.length;
     objDiv.scrollTop = objDiv.scrollHeight;

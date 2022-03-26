@@ -14,12 +14,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // goTo(page:String){
-  //   switch(page){
-  //     case 'theory':{
-  //       routing.navigate(['/'])
-  //     }
-  //   }
-  // }
-
 }
