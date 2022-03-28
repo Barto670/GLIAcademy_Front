@@ -209,21 +209,15 @@ export class QuizComponent implements OnInit {
        this.aceEditor.on("change", () => {
           console.log(this.aceEditor.getValue());
        });
-       this.setContent("");
-       if(this.currentQuestion.question == "tutorial"){
-        this.setCodeTutorial();
-      }
-    
-      if(this.currentQuestion.question == "typo"){
-        this.setCodeTypography();
-      }
+       
+      this.refresh();
   
-       this.aceEditor.getSession().setMode("ace/mode/html"); //set language
-       this.aceEditor.setShowFoldWidgets(true); // for the scope fold feature
-  
-       this.aceEditor.renderer.attachToShadowRoot()
-       this.intialUpdate();
-       this.loading = false;
+      this.aceEditor.getSession().setMode("ace/mode/html"); //set language
+      this.aceEditor.setShowFoldWidgets(true); // for the scope fold feature
+
+      this.aceEditor.renderer.attachToShadowRoot()
+      this.intialUpdate();
+      this.loading = false;
        
     },
     300);
@@ -413,6 +407,8 @@ setCodeTypography(){
 
 refresh(){
   this.setContent("");
+  this.questionCheckedAnswer = false;
+  
   if(this.currentQuestion.question == "tutorial"){
     this.setCodeTutorial();
   }
@@ -420,7 +416,7 @@ refresh(){
   if(this.currentQuestion.question == "typo"){
     this.setCodeTypography();
   }
-  
+  this.intialUpdate();
 }
 
 beautifyContent() {

@@ -158,7 +158,7 @@
                 <!-- run, clear & beautify buttons -->
                 <div class="row col-12 mb-4 justify-content-center justify-content-center  align-items-center mx-4">
                     <div class="col-4 col-lg-2 col-md-3 col-sm-4">
-                        <button type="button" class="btn btn-dark btn-sm btn-block px-4 mx-2 buttons" (click)="consoleCode()">
+                        <button type="button" class="btn btn-dark btn-sm btn-block px-4 mx-2 buttons" [disabled]="questionCheckedAnswer" (click)="consoleCode()">
                             Check Code
                         </button>
                     </div>
@@ -168,7 +168,7 @@
                         </button>
                     </div>
                     <div class="col-4 col-lg-2 col-md-3 col-sm-4">
-                        <button type="button" class="btn btn-beautify btn-sm btn-block px-4 mx-2 buttons" (click)="beautifyContent()">
+                        <button type="button" class="btn btn-secondary btn-sm btn-block px-4 mx-2 buttons" (click)="beautifyContent()">
                             Beautify
                         </button>
                     </div>
