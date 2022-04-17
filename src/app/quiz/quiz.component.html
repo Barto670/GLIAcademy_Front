@@ -211,17 +211,17 @@
         </div>
     </div>
 
-
+</div>
 
     <div *ngIf="currentQuestion && currentQuestion.type == 'END'" class="container">
-
+        
         <div class="borderAroundPage col-12 row">
             <div class="col-4">
-                <div class="quizBox">
+                <div class="quizBox" style="color:black">
                     More Content coming soon!
                 </div>
             </div>
-    
+        </div>
     
         <div style="position: fixed; background-color: #e79215; height: 5vh; top:95vh" class="col-12 row">
             <div class="col-1 gridCenter" style="height: 5vh;">
@@ -230,13 +230,12 @@
             <div class="col-10 gridCenter" style="height: 5vh;">
                 <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">{{currentQuestion.stageType}} [ {{currentQuestion.stageNumber}}/{{quizCount}} ]</h1>
     
-                <!-- <h1 style="color: #271700; font-weight: bold; font-size: 2.3vh; ">Basics 		<mat-icon style="max-width: 1vw; max-height: 1vh; font-size: 2vh;">arrow_left</mat-icon> 1/14 <mat-icon style="max-width: 1vw; max-height: 1vh;font-size: 2vh;">arrow_right</mat-icon></h1> -->
             </div>
             <div class="col-1 gridCenter" style="height: 5vh;">
                 <mat-icon *ngIf="allowForwards" class="leftRightArrow" style="font-size: 5vh; height: 5vh;" (click)="arrow('forward')">keyboard_arrow_right</mat-icon>
             </div>
         </div>
-    
     </div>
+    
+    
 
-</div>

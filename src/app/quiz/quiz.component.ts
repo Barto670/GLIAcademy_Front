@@ -64,7 +64,7 @@ export class QuizComponent implements OnInit {
 
   ngAfterViewInit(): void {
 
-    this.setProgrammingToDefault();
+      // this.setProgrammingToDefault()
      
   }
 
