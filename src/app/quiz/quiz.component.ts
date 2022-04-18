@@ -302,26 +302,34 @@ export class QuizComponent implements OnInit {
           this.currentQuestion = data;
           this.appServices.updateUserSection(this.user.id,this.currentQuestion.stageType).subscribe( data => {
           this.appServices.updateUserSectionStage(this.user.id,this.currentQuestion.stageNumber).subscribe( data => {
+            
+            var temp = 0;
 
             if(this.wrongAnswer == true){
-              this.appServices.answeredIncorrect(this.user.id).subscribe( data => {
-              })
+              temp = 0;
             }else if(this.correctAnswer == true){
-              this.appServices.answeredCorrect(this.user.id).subscribe( data => {
-              })
+              temp = 1;
             }
 
-            let loginInfo = {
-              email : this.user.email,
-              password : this.user.password
-            }
-        
-            this.appServices.login(loginInfo).subscribe( userData => {
-              localStorage.setItem('user', JSON.stringify(userData));
-        
-              this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
-              this.getUserByStageTypeNumber();
+            this.appServices.answered(this.user.id, temp).subscribe( data => {
+
+              let loginInfo = {
+                email : this.user.email,
+                password : this.user.password
+              }
+          
+              this.appServices.login(loginInfo).subscribe( userData => {
+                localStorage.setItem('user', JSON.stringify(userData));
+          
+                this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+                this.getUserByStageTypeNumber();
+              })
+
             })
+
+
+
+           
           })
         })
       })

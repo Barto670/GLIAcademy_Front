@@ -115,13 +115,10 @@ export class AppServices implements OnInit {
     return this.http.get<any>(this.serverUrl + '/updateUserSectionStage?id=' + `${id}`+'&sectionStage='+ `${sectionStage}`);
   }
 
-  answeredCorrect(id:number): Observable<any> {
-    return this.http.get<any>(this.serverUrl + '/answeredCorrect?id=' + `${id}`);
+  answered(id:number, value:number): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/answered?id=' + `${id}`+'&value='+ `${value}`);
   }
 
-  answeredIncorrect(id:number): Observable<any> {
-    return this.http.get<any>(this.serverUrl + '/answeredIncorrect?id=' + `${id}`);
-  }
 
   
 
