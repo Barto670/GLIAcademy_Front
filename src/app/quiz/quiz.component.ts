@@ -303,6 +303,14 @@ export class QuizComponent implements OnInit {
           this.appServices.updateUserSection(this.user.id,this.currentQuestion.stageType).subscribe( data => {
           this.appServices.updateUserSectionStage(this.user.id,this.currentQuestion.stageNumber).subscribe( data => {
 
+            if(this.wrongAnswer == true){
+              this.appServices.answeredIncorrect(this.user.id).subscribe( data => {
+              })
+            }else if(this.correctAnswer == true){
+              this.appServices.answeredCorrect(this.user.id).subscribe( data => {
+              })
+            }
+
             let loginInfo = {
               email : this.user.email,
               password : this.user.password

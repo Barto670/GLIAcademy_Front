@@ -78,6 +78,7 @@ export class chat implements OnInit {
   } 
 
   close(){
+    this.appServices.messageNotification = 0;
     this.navbar.chat = false
   }
 
