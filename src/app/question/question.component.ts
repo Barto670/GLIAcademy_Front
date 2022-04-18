@@ -11,11 +11,11 @@ import 'ace-builds/src-noconflict/ext-beautify';
 
 
 @Component({
-  selector: 'app-theory',
-  templateUrl: './theory.component.html',
-  styleUrls: ['./theory.component.scss']
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.scss']
 })
-export class TheoryComponent implements OnInit {
+export class QuestionComponent implements OnInit {
 
   //programming
   @ViewChild('editor', {static: false}) editor!: ElementRef<HTMLElement>;
@@ -62,7 +62,7 @@ export class TheoryComponent implements OnInit {
   loading :boolean = false;
 
 
-  possibleQuestions = [4,5,6,7,8];
+  possibleQuestions = [9,10];
 
 
   ngAfterViewInit(): void {
@@ -81,7 +81,7 @@ export class TheoryComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
 
-    this.resetTheory();
+    this.resetQuiz();
 
     console.log(this.currentStageNumber)
 
@@ -92,7 +92,7 @@ export class TheoryComponent implements OnInit {
   }
 
 
-  resetTheory(){
+  resetQuiz(){
     var rand = this.possibleQuestions[(Math.random() * this.possibleQuestions.length) | 0]
 
     this.currentStageNumber = rand;
@@ -168,6 +168,40 @@ export class TheoryComponent implements OnInit {
 
   onNextButtonClicked(){
 
+
+    var temp = 1;
+
+    if(this.correctAnswer == true){
+      temp = 1;
+    }else if(this.wrongAnswer == true){
+      temp = 0;
+    }
+
+    this.appServices.answered(this.user.id, temp).subscribe( data => {
+
+
+      let loginInfo = {
+        email : this.user.email,
+        password : this.user.password
+      }
+  
+      this.appServices.login(loginInfo).subscribe( userData => {
+        localStorage.setItem('user', JSON.stringify(userData));
+  
+        this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
+        this.getUserByStageTypeNumber();
+      })
+
+    })
+
+    //disabling and enabling buttons
+    this.questionClickedDisabled = true;
+    this.questionCheckedAnswer = false;
+
+    //after a question is answered
+    this.correctAnswer = false;
+    this.wrongAnswer = false;
+
     //the question we answer
     this.questionAnswered = 0;
 
@@ -180,9 +214,7 @@ export class TheoryComponent implements OnInit {
       this.setAllAnswersToDefault();
     }
 
-    this.resetTheory();
-
-    this.getUserByStageTypeNumber();
+    this.resetQuiz();
 
   }
 

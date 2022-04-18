@@ -28,6 +28,7 @@ import { popup } from './profile/popup/popup.component';
 import { chat } from './global/navbar/chat/chat.component'
 import { AboutComponent } from './about/about.component';
 import { AboutLoginComponent } from './aboutLogin/aboutLogin.component';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
 imports: [
@@ -60,6 +61,7 @@ declarations: [
     chat,
     AboutComponent,
     AboutLoginComponent,
+    QuestionComponent
     
 ],
 providers: [AppServices ,DatePipe,NavbarComponent],

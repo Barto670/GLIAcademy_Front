@@ -302,13 +302,13 @@ export class QuizComponent implements OnInit {
           this.currentQuestion = data;
           this.appServices.updateUserSection(this.user.id,this.currentQuestion.stageType).subscribe( data => {
           this.appServices.updateUserSectionStage(this.user.id,this.currentQuestion.stageNumber).subscribe( data => {
-            
-            var temp = 0;
 
-            if(this.wrongAnswer == true){
-              temp = 0;
-            }else if(this.correctAnswer == true){
+            var temp = 1;
+
+            if(this.correctAnswer == true){
               temp = 1;
+            }else if(this.wrongAnswer == true){
+              temp = 0;
             }
 
             this.appServices.answered(this.user.id, temp).subscribe( data => {

@@ -10,6 +10,7 @@ import { Login2Component } from './login2/login2.component';
 import { Home2Component } from './home2/home2.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutLoginComponent } from './aboutLogin/aboutLogin.component';
+import { QuestionComponent } from './question/question.component';
 // import { ContactUsComponent } from './contactus/contactus.component';
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'statistics', component: StatisticsComponent, data: { title: 'Statistics' } },
   { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
   { path: 'aboutus', component: AboutLoginComponent, data: { title: 'About Us' } },
+  { path: 'question', component: QuestionComponent, data: { title: 'Question' } },
   // { path: 'contactus', component: ContactUsComponent, data: { title: 'Contact Us' } },
 
 

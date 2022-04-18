@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user')!); // The non-null assertion operator at the end of the line
 
     this.updateLatestMessage();
-    interval(2000).subscribe((func => {
+    interval(7500).subscribe((func => {
       this.updateMessage();
     }))
   }
